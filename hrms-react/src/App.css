@@ -1,7 +1,269 @@
-.App {
-  text-align: center;
+/* FONTS */
+@import url(https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Stint+Ultra+Condensed&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Acme&display=swap);
+
+.mainSectionHeader,
+.serviceHeader,
+.teamHeader,
+.teamPersonHeader,
+.contactHeader,
+.contactInformationHeader {
+  font-family: 'Bebas Neue', cursive !important;
+  letter-spacing: 1px;
 }
 
-.ui.main.container {
-  margin-top: 6em;
+.mainSectionContent {
+  font-family: 'Acme', sans-serif !important;
+}
+
+/* MAIN */
+.App {
+  text-align: center;
+  background-color: rgba(199, 193, 193, 0.404);
+}
+
+/* Smooth Scroll */
+
+html {
+  scroll-behavior: smooth !important;
+}
+
+/*##############################################################################################*/
+/* General Page Settings */
+.section {
+  padding-top: 100px;
+  padding-bottom: 100px;
+  min-height: 100vh;
+}
+
+/* Containers */
+.teamContainer,
+.contactContainer,
+.serviceMainGridRow,
+.serviceGridColumn {
+  background: linear-gradient(rgba(75, 73, 73, 0.4), rgba(75, 73, 73, 0.4)) !important;
+  border-radius: 10px/10px;
+  margin-top: 10px;
+}
+
+/*##############################################################################################*/
+/* Media Setting */
+
+/*##############################################################################################*/
+
+/* Navbar */
+.fixed {
+  background-color: rgba(102, 99, 99, 0.3) !important;
+  padding: 3px 30px 10px 30px;
+  box-shadow: 3px 0px 1px 1px black !important;
+}
+
+/* Navbar Logo */
+.naviLogo {
+  display: block !important;
+  font-size: 18px !important;
+  border-radius: 100% !important;
+}
+
+/* Navbar Buttons */
+.naviButtonGroup {
+  padding-left: 3px !important;
+  height: 30px !important;
+  top: 6px !important;
+  position: relative !important;
+}
+
+.naviRegisterButton {
+  background-color: #740303 !important;
+  color: white !important;
+  border-radius: 10px/10px !important;
+}
+
+.naviLoginButton {
+  background-color: #006600 !important;
+  border: transparent solid rgba(65,105,225) !important;
+  color: rgb(255, 255, 255) !important;
+  border-radius: 10px/10px !important;
+}
+
+/*##############################################################################################*/
+/* Home Page => MainSection -- MainContainer */
+.mainSection {
+  background: linear-gradient(rgba(160, 180, 238, 0.7), rgba(65,105,225, 0.2)) !important;
+  min-height: 100vh !important;
+}
+
+.mainContainer {
+  position: absolute !important;
+  top: 55% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  min-width: 80% !important;
+  border-radius: 10px/10px;
+  background: linear-gradient(rgba(75, 73, 73, 0.4), rgba(75, 73, 73, 0.4)) !important;
+}
+
+/* MainSection => MainSectionImage */
+.mainSectionImage {
+  margin-top: 20px;
+}
+
+/* MainSection => Header and Span */
+.mainSectionHeader {
+  font-size: 45px !important;
+  font-weight: lighter !important;
+  letter-spacing: 2px !important;
+}
+
+.mainSectionHeader span {
+  font-size: 90px !important;
+  color: #740303 !important;
+}
+
+/* MainSection => Content and Lets Button */
+.mainSectionContent {
+  font-size: 30px !important;
+  font-weight: 200 !important;
+}
+
+.letsButton {
+  margin-top: 10px !important;
+  margin-bottom: 20px !important;
+  border: 1.4 solid rgb(109, 128, 185) !important;
+  background-color: #740303 !important;
+  border-radius: 10px/10px !important;
+}
+
+/*##############################################################################################*/
+/* HomePage => ServiceSection */
+.serviceSection {
+  background: linear-gradient(rgba(65,105,225, 0.2), rgba(160, 180, 238, 0.7)) !important;
+}
+
+/* ServiceSection => ServiceHeader -- ServiceMainContent -- serviceSubContent */
+.serviceHeader {
+  color: #740303 !important;
+  font-size: 50px !important;
+  font-weight: 200 !important;
+}
+
+.serviceMainContent {
+  font-size: 20px;
+  font-weight: 200 !important;
+  color: #fff;
+  line-height: 1.3;
+}
+
+.serviceSubContent {
+  font-size: 20px;
+  line-height: 1.3;
+  color: #3b2f2f !important;
+  font-weight: bold !important;
+}
+
+/* ServiceSection => ServiceGridColumn -- ServiceGridIcon */
+.serviceGridColumn {
+  margin: 0px 10px 10px 10px;
+  border: 1px solid rgba(0, 0, 0, 0.2) !important;
+  border-radius: 10px/10px;
+}
+
+.serviceGridIcon {
+  font-size: 40px !important;
+  border: 0.1em solid !important;
+}
+
+/*##############################################################################################*/
+/* HomePage => TeamSection -- TeamContainer */
+.teamSection {
+  background: linear-gradient(rgba(160, 180, 238, 0.7), rgba(65,105,225, 0.2)) !important;
+}
+
+.teamContainer {
+  margin-top: 0px !important;
+}
+
+/* TeamSection => TeamHeader -- TeamMainContent -- TeamMainPersonName */
+.teamHeader {
+  font-size: 50px !important;
+  font-weight: 200 !important;
+  color: #740303 !important;
+}
+
+.teamMainContent {
+  font-size: 15px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #fff;
+}
+
+.teamMainPersonName {
+  font-size: 18px;
+  color: rgba(209, 40, 18, 0.911);
+}
+
+/* TeamSection => TeamPersonHeader -- TeamPersonContent */
+.teamPersonHeader {
+  font-size: 25px !important;
+  font-weight: lighter !important;
+  letter-spacing: 1px;
+  color: rgba(209, 40, 18, 0.911) !important;
+}
+
+.teamPersonContent {
+  font-size: 16px;
+  font-weight: bold;
+  color: #41413e;
+}
+
+/*##############################################################################################*/
+/* HomePage => ContactSection -- ContactContainer */
+.contactSection {
+  background: linear-gradient(rgba(65,105,225, 0.2), rgba(160, 180, 238, 0.7)) !important;
+  min-height: 80vh !important;
+}
+
+.contactContainer {
+  margin-top: -24px !important;
+}
+
+/* ContactSection => ContactHeader -- ContactContent*/
+.contactHeader {
+  font-size: 50px !important;
+  font-weight: lighter !important;
+  color: #740303 !important;
+}
+.contactContent {
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #fff;
+}
+
+/* ContactSection => ContactFormInput */
+.contactFormInput {
+  margin-bottom: 7px !important;
+}
+
+/* ContactSection => ContactInformationHeader -- ContactInformationIcon */
+.contactInformationHeader,
+.contactInformationIcon {
+  font-weight: lighter !important;
+  color: rgb(13, 87, 87) !important;
+}
+
+/*##############################################################################################*/
+/* Footer */
+
+.footer {
+  padding: 2.5em 0em;
+  margin-top: -5px;
+  border-radius: 8px/8px;
+  background: linear-gradient(rgba(0,0,0, 0.8), rgba(0, 0, 0, 0.8)), url(./images/footer.jpg) no-repeat center !important;
+  background-size: cover !important;
+}
+
+/* Footer => FooterHeader -- FooterSubContent */
+.footerHeader,
+.footerSubContent {
+  color: lightgray !important;
 }

@@ -1,16 +1,19 @@
 import './App.css';
 import 'semantic-ui-css/semantic.min.css'
-import Dashboard from './layouts/Dashboard';
-import { Container } from 'semantic-ui-react';
+import { useState } from 'react';
 import Navi from './layouts/Navi';
+import HomeDashboard from './layouts/HomeDashboard'
 
 function App() {
+  const [activeItem, setActiveItem] = useState('home')
+  function handleItemClick(e, { name }) {
+    setActiveItem(name)
+  }
+
   return (
     <div className="App">
-      <Navi />
-      <Container className="main">
-        <Dashboard />
-      </Container>
+      <Navi activeItem={activeItem} setActiveItem={handleItemClick} />
+      <HomeDashboard setActiveItem={handleItemClick} />
     </div>
   );
 }
