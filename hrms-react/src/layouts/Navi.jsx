@@ -1,5 +1,7 @@
 import React from 'react'
-import { Container, Menu, Button } from 'semantic-ui-react'
+import { Link } from 'react-router-dom'
+import { Container, Menu } from 'semantic-ui-react'
+import LoginButtonGroup from './LoginButtonGroup'
 
 export default function Navi({ activeItem, setActiveItem }) {
     return (
@@ -7,23 +9,21 @@ export default function Navi({ activeItem, setActiveItem }) {
             <Container>
                 <Menu className='navbar' inverted secondary pointing fixed='top' size='large'>
                     <Menu.Item />
-                    <Menu.Item className='naviLogo' name="home" onClick={setActiveItem} href="#home" active content='HRMS.com' />
+                    <Menu.Item className='naviLogo' name="home" onClick={setActiveItem} as={Link} to="/" active content='HRMS.com' />
                     <Menu.Item>
-                        <Button.Group className='naviButtonGroup' compact size='medium' >
-                            <Button className="naviRegisterButton" content='Register' />
-                            <Button.Or text='&' />
-                            <Button className="naviLoginButton" content='Employer Login' />
-                            <Button.Or text='&' />
-                            <Button className="naviLoginButton" content='Unemployed Login' />
-                        </Button.Group>
+                        <LoginButtonGroup setActiveItem={setActiveItem} />
                     </Menu.Item>
 
 
                     <Menu.Menu className="naviSecondaryMenu" position='right'>
-                        <Menu.Item name="home" active={activeItem === 'home'} onClick={setActiveItem} href="#home" content='Home' />
-                        <Menu.Item name="services" active={activeItem === 'services'} onClick={setActiveItem}href="#services" content='Services' />
-                        <Menu.Item name="team" active={activeItem === 'team'} onClick={setActiveItem} href="#team"  content='Team' />
-                        <Menu.Item name="contact" active={activeItem === 'contact'} onClick={setActiveItem} href="#contact" content='Contact' />
+                        <Menu.Item name="home" active={(activeItem === 'home') ? true : false} onClick={setActiveItem} 
+                        as={Link} to="/" content='Home' />
+                        <Menu.Item name="services" active={(activeItem === 'services') ? true : false} onClick={setActiveItem} 
+                        as={Link} to="/services" content='Services' />
+                        <Menu.Item name="team" active={(activeItem === 'team') ? true : false} onClick={setActiveItem} 
+                        as={Link} to="/team" content='Team' />
+                        <Menu.Item name="contact" active={(activeItem === 'contact') ? true : false} onClick={setActiveItem} 
+                        as={Link} to="/contact" content='Contact' />
                     </Menu.Menu>
 
                 </Menu>

@@ -2,7 +2,9 @@ import './App.css';
 import 'semantic-ui-css/semantic.min.css'
 import React, { useState } from 'react';
 import Navi from './layouts/Navi';
-import HomeDashboard from './layouts/HomeDashboard'
+import Footer from './layouts/Footer';
+import Dashboard from './layouts/Dashboard';
+
 
 function App() {
   const [activeItem, setActiveItem] = useState('home')
@@ -14,7 +16,8 @@ function App() {
   return (
     <div className="App">
       <Navi activeItem={activeItem} setActiveItem={handleItemClick} />
-      <HomeDashboard setActiveItem={handleItemClick} />
+      <Dashboard />
+      <Footer />
     </div>
   );
 }

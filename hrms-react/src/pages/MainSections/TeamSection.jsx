@@ -7,7 +7,8 @@ import teamImage from './homeImages/team.png'
 export default function TeamSection() {
     return (
         <div id="team" className="section teamSection">
-            <Container className="teamContainer">
+            <Container className="teamContainer"
+                style={{marginTop:"0px"}}>
                 <Grid stackable textAlign="center" columns='3' container>
                     <Grid.Row>
                         <Grid.Column largeScreen="16" mobile='16' tablet='12' computer='10' >
