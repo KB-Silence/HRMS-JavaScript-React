@@ -1,11 +1,12 @@
 import './App.css';
 import 'semantic-ui-css/semantic.min.css'
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Navi from './layouts/Navi';
 import HomeDashboard from './layouts/HomeDashboard'
 
 function App() {
   const [activeItem, setActiveItem] = useState('home')
+
   function handleItemClick(e, { name }) {
     setActiveItem(name)
   }
@@ -17,5 +18,4 @@ function App() {
     </div>
   );
 }
-
 export default App;
