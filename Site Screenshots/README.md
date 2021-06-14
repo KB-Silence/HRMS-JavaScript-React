@@ -1,4 +1,4 @@
-![Alt Text](https://media.giphy.com/media/WOnWQLsXoMrccxYSFZ/giphy.gif)  
+![Alt Text](https://media.giphy.com/media/kXNVovbx8u6xkRdoqI/giphy.gif)  
 
 # Main Sections  
 ## **[Click here.](https://github.com/KB-Silence/HRMS-JavaScript-React/tree/main/Site%20Screenshots/main-sections)**  
