@@ -5,7 +5,7 @@ import { Button } from 'semantic-ui-react'
 export default function LoginButtonGroup({setActiveItem}) {
     return (
         <div>
-            <Button.Group className='naviButtonGroup' compact size='medium' >
+            <Button.Group className='naviButtonGroup' compact size='medium' style={{marginBottom:"8px"}} >
                 <Button className="naviRegisterButton" onClick={setActiveItem} name="register" content='Register' as={Link} to="/register" />
                 <Button.Or text='&' />
                 <Button className="naviLoginButton" onClick={setActiveItem} name="login" content='Employer Login' as={Link} to="/employerLogin" />

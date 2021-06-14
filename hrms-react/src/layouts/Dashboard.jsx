@@ -11,7 +11,7 @@ import EmployerLogin from '../pages/LoginAndRegister/EmployerLogin'
 import UnemployedLogin from '../pages/LoginAndRegister/UnemployedLogin'
 
 
-export default function Dashboard() {
+export default function Dashboard({isAuthenticated, userType}) {
     return (
         <div>
             <Route exact path="/" component={MainSection} />
@@ -23,8 +23,13 @@ export default function Dashboard() {
             <Route exact path="/employerRegister" component={EmployerRegister} />
             <Route exact path="/unemployedRegister" component={UnemployedRegister} />
             
-            <Route exact path="/employerLogin" component={EmployerLogin} />
+            <Route exact path="/employerLogin" render={()=>(
+                <React.Fragment>
+                    <EmployerLogin signIn={isAuthenticated} userType={userType} />
+                </React.Fragment>
+            )} />
             <Route exact path="/unemployedLogin" component={UnemployedLogin} />
+            <Route exact path="/getAllAdvertisements" />
         </div>
     )
 }

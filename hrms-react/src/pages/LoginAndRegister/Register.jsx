@@ -5,7 +5,7 @@ import { Container, Grid, Button } from 'semantic-ui-react'
 export default function Register() {
     return (
         <div className="pages">
-            <Grid textAlign="center" verticalAlign="middle" style={{ height: "64vh" }}>
+            <Grid textAlign="center" verticalAlign="middle" style={{height:"100%"}}>
                 <Grid.Row>
                     <Grid.Column className="registerEmployer" mobile="15" tablet="8" computer="6">
                         <Container style={{marginTop:"90px"}}>

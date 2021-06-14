@@ -19,7 +19,7 @@ export default function ServiceSection() {
                             <Grid verticalAlign="middle" columns="2" stackable divided container>
                                 <Grid.Row className="serviceGridColumn" >
                                     <Grid.Column mobile="8" tablet="4" computer="2" largeScreen="3">
-                                        <Icon className="serviceGridIcon" circular inverted color="teal" name="street view" />
+                                        <Icon className="serviceGridIcon" circular color="blue" inverted name="street view" />
                                     </Grid.Column>
                                     <Grid.Column mobile="8" tablet="12" computer="14" largeScreen="13">
                                         <Header.Content className='serviceSubContent'>You can advertise for your business. You set the criteria and you can hire people with the qualifications you are looking for. </Header.Content>
@@ -28,7 +28,7 @@ export default function ServiceSection() {
 
                                 <Grid.Row className="serviceGridColumn" >
                                     <Grid.Column mobile="8" tablet="4" computer="2" largeScreen="3">
-                                        <Icon className="serviceGridIcon" circular inverted color="teal" name="building outline" />
+                                        <Icon className="serviceGridIcon" circular color="blue" inverted name="building outline" />
                                     </Grid.Column>
                                     <Grid.Column mobile="8" tablet="12" computer="14" largeScreen="13">
                                         <Header.Content className='serviceSubContent'>You can view active job advertisements and details. You can create a CV and apply for the job you want. You can work in your dream job with pleasure. </Header.Content>
@@ -37,7 +37,7 @@ export default function ServiceSection() {
 
                                 <Grid.Row className="serviceGridColumn" >
                                     <Grid.Column mobile="8" tablet="4" computer="2" largeScreen="3">
-                                        <Icon className="serviceGridIcon" circular inverted color="teal" name="code branch" />
+                                        <Icon className="serviceGridIcon" circular color="blue" inverted name="code branch" />
                                     </Grid.Column>
                                     <Grid.Column mobile="8" tablet="12" computer="14" largeScreen="13">
                                         <Header.Content className='serviceSubContent'>As a volunteer, you become an employee of our system. You can help us improve the project and reach more people. </Header.Content>
