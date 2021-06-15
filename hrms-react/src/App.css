@@ -117,7 +117,7 @@
 .mainSectionHeader span {
   font-size: 90px !important;
   background: -webkit-linear-gradient(#c31432, #240b36) !important;
-  -webkit-background-clip: text !important;
+  background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
 }
 
@@ -125,7 +125,7 @@
 .mainSectionContent {
   font-size: 30px !important;
   background: -webkit-linear-gradient(#c31432, #240b36) !important;
-  -webkit-background-clip: text !important;
+  background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
   font-weight: 200 !important;
   letter-spacing: 2px;
@@ -147,7 +147,7 @@
   font-size: 50px !important;
   font-weight: 200 !important;
   background: -webkit-linear-gradient(#c31432, #240b36) !important;
-  -webkit-background-clip: text !important;
+  background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
 }
 
@@ -185,7 +185,7 @@
   font-size: 50px !important;
   font-weight: 200 !important;
   background: -webkit-linear-gradient(#c31432, #240b36) !important;
-  -webkit-background-clip: text !important;
+  background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
 }
 
@@ -226,7 +226,7 @@
   font-size: 50px !important;
   font-weight: lighter !important;
   background: -webkit-linear-gradient(#c31432, #240b36) !important;
-  -webkit-background-clip: text !important;
+  background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
 }
 .contactContent {
@@ -246,7 +246,7 @@
   font-weight: bold !important;
   letter-spacing: 3px;
   background: -webkit-linear-gradient(#d5dd3b, #7bd17e) !important;
-  -webkit-background-clip: text !important;
+  background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
 }
 
@@ -321,4 +321,18 @@
   letter-spacing: 1px;
   color: white !important;
   background: linear-gradient(to left, #17aa66, #b92b2b) !important;
+}
+
+/*##############################################################################################*/
+/* Add Advertisement => Dropdown */
+.addAdvertDropdown {
+  margin-bottom: 15px !important;
+}
+
+/* Add Advertisement => Add Button */
+.addAdvertButton {
+  font-size: 18px !important;
+  letter-spacing: 5px;
+  color: rgb(0, 0, 0) !important;
+  background: linear-gradient(to left, #a8ff78, #78ffd6) !important;
 }
