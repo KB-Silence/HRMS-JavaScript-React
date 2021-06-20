@@ -13,7 +13,7 @@ import EmployerAdvertisements from '../pages/EmployerAdvertisements'
 import AddAdvertisement from '../pages/AddAdvertisement'
 
 
-export default function Dashboard({isAuthenticated, userType}) {
+export default function Dashboard() {
     return (
         <div>
             <Route exact path="/" component={MainSection} />
@@ -27,7 +27,7 @@ export default function Dashboard({isAuthenticated, userType}) {
             
             <Route exact path="/employerLogin" render={()=>(
                 <React.Fragment>
-                    <EmployerLogin signIn={isAuthenticated} userType={userType} />
+                    <EmployerLogin />
                 </React.Fragment>
             )} />
             <Route exact path="/unemployedLogin" component={UnemployedLogin} />

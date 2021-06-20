@@ -19,7 +19,7 @@
 /* MAIN */
 .App {
   text-align: center;
-  background: linear-gradient(to left, #007991, #78ffd6);
+  background: linear-gradient(to left, #1d2b64, #f8cdda);
 }
 
 /*##############################################################################################*/
@@ -70,24 +70,25 @@
 }
 
 /* Navbar Buttons */
-.naviButtonGroup {
-  padding-left: 3px !important;
-  height: 30px !important;
-  top: 6px !important;
-  position: relative !important;
+.registerDropdown, .loginDropdown {
+  margin-right: 10px !important;
+  color: #fff !important;
+  letter-spacing: 1px;
+  background: linear-gradient(to right, #666b79, #598ada) !important;
 }
 
-.naviRegisterButton {
-  background: linear-gradient(to right, #8e0e00, #1f1c18) !important;
-  color: white !important;
-  border-radius: 10px/10px !important;
+.registerDropMenu,
+.loginDropMenu {
+  margin-top: 5px !important;
+  margin-left: -40px !important ;
+  background: linear-gradient(to left, #772626, #3f4252) !important;
 }
 
-.naviLoginButton {
-  background: linear-gradient(to right, #000046, #1cb5e0) !important;
-  border: transparent solid rgba(65,105,225) !important;
-  color: rgb(255, 255, 255) !important;
-  border-radius: 10px/10px !important;
+.registerDropMenu span,
+.loginDropMenu span {
+  color: #fff !important;
+  font-weight: lighter;
+  letter-spacing: 1px; 
 }
 
 /*##############################################################################################*/
@@ -310,15 +311,11 @@
   font-weight: bold !important;
 }
 
-.employerSignAllAdverts {
-  padding: 1px 1px 12px 0px !important;
-}
-
 .employerSignAllButton {
-  padding: 8px 10px 8px 10px !important;
   border-radius: 15px !important;
   font-weight: lighter !important;
   letter-spacing: 1px;
+  font-size: 13px !important;
   color: white !important;
   background: linear-gradient(to left, #17aa66, #b92b2b) !important;
 }
