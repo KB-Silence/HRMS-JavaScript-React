@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { Menu, Image, Dropdown, Button } from 'semantic-ui-react'
 
-export default function EmployerSignIn() {
+export default function EmployerSignIn({signOut}) {
     return (
         <div>
             <Menu.Menu position='left'>
@@ -17,7 +17,7 @@ export default function EmployerSignIn() {
                             <Dropdown.Item className="employerSignDropdownContent" content='Add Advert.' icon='add circle'
                             as={Link} to="addAdvertisement" />
                             <Dropdown.Item className="employerSignDropdownContent" content='Profile' icon='user circle' />
-                            <Dropdown.Item className="employerSignDropdownContent" content='Sign Out' icon='sign-out' />
+                            <Dropdown.Item className="employerSignDropdownContent" content='Sign Out' icon='sign-out' onClick={signOut} />
                         </Dropdown.Menu>
                     </Dropdown>
                 </Menu.Item>

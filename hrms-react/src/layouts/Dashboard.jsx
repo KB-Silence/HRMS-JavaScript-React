@@ -1,6 +1,5 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
-import Register from '../pages/LoginAndRegister/Register'
 import MainSection from '../pages/MainSections/MainSection'
 import ServiceSection from '../pages/MainSections/ServiceSection'
 import TeamSection from '../pages/MainSections/TeamSection'
@@ -13,7 +12,7 @@ import EmployerAdvertisements from '../pages/EmployerAdvertisements'
 import AddAdvertisement from '../pages/AddAdvertisement'
 
 
-export default function Dashboard() {
+export default function Dashboard({isAuthenticated, userType}) {
     return (
         <div>
             <Route exact path="/" component={MainSection} />
@@ -21,13 +20,12 @@ export default function Dashboard() {
             <Route exact path="/team" component={TeamSection} />
             <Route exact path="/contact" component={ContactSection} />
 
-            <Route exact path="/register" component={Register} />
             <Route exact path="/employerRegister" component={EmployerRegister} />
             <Route exact path="/unemployedRegister" component={UnemployedRegister} />
             
             <Route exact path="/employerLogin" render={()=>(
                 <React.Fragment>
-                    <EmployerLogin />
+                    <EmployerLogin signIn={isAuthenticated} userType={userType} />
                 </React.Fragment>
             )} />
             <Route exact path="/unemployedLogin" component={UnemployedLogin} />

@@ -312,12 +312,14 @@
 }
 
 .employerSignAllButton {
+  margin-left: -15px !important;
+  margin-bottom: -10px !important;
   border-radius: 15px !important;
   font-weight: lighter !important;
   letter-spacing: 1px;
   font-size: 13px !important;
   color: white !important;
-  background: linear-gradient(to left, #17aa66, #b92b2b) !important;
+  background: #b92b2b !important;
 }
 
 /*##############################################################################################*/
