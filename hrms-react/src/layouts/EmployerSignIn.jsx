@@ -22,7 +22,7 @@ export default function EmployerSignIn({signOut}) {
                     </Dropdown>
                 </Menu.Item>
                 <Menu.Item className="employerSignAllAdverts">
-                    <Button className="employerSignAllButton" as={Link} to="getAllAdvertisements" > See all Adverts </Button>
+                    <Button className="employerSignAllButton" as={Link} to="allJobAdvertisements" > See all Adverts </Button>
                 </Menu.Item>
             </Menu.Menu>
         </div>

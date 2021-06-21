@@ -10,6 +10,7 @@ import EmployerLogin from '../pages/LoginAndRegister/EmployerLogin'
 import UnemployedLogin from '../pages/LoginAndRegister/UnemployedLogin'
 import EmployerAdvertisements from '../pages/EmployerAdvertisements'
 import AddAdvertisement from '../pages/AddAdvertisement'
+import JobAdvertisementList from '../pages/JobAdvertisementList'
 
 
 export default function Dashboard({isAuthenticated, userType}) {
@@ -33,6 +34,7 @@ export default function Dashboard({isAuthenticated, userType}) {
 
             <Route exact path="/employerAdvertisements" component={EmployerAdvertisements} />
             <Route exact path="/addAdvertisement" component={AddAdvertisement} />
+            <Route exact path="/allJobAdvertisements" component={JobAdvertisementList} />
         </div>
     )
 }

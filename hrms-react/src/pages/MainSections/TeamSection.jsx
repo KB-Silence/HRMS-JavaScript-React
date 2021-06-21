@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Grid, Header, Item, Image, Icon, Divider } from 'semantic-ui-react'
+import { Container, Grid, Header, Item, Image, Icon, Divider, Menu } from 'semantic-ui-react'
 import myImage from './homeImages/brkcn.png'
 import myTeach from './homeImages/enginhocam.jpg'
 import teamImage from './homeImages/team.png'
@@ -8,7 +8,7 @@ export default function TeamSection() {
     return (
         <div id="team" className="section teamSection">
             <Container className="teamContainer"
-                style={{marginTop:"0px"}}>
+                style={{ marginTop: "0px" }}>
                 <Grid stackable textAlign="center" columns='3' container>
                     <Grid.Row>
                         <Grid.Column largeScreen="16" mobile='16' tablet='12' computer='10' >
@@ -36,10 +36,17 @@ export default function TeamSection() {
                                     <Header dividing className="teamPersonHeader" content="Engin Demiroğ" />
                                     <Item className="teamPersonContent" meta="Ceo & Owner" />
                                     <Divider />
-                                    <Icon circular inverted link name="instagram" />
-                                    <Icon circular inverted link name="linkedin" />
-                                    <Icon circular inverted link name="github" />
-                                    <Icon circular inverted link name="discord" />
+                                    <Menu compact secondary widths="5">
+                                        <Menu.Item href="https://www.instagram.com/engindemirog/" target="_blank">
+                                            <Icon circular inverted link name="instagram" />
+                                        </Menu.Item>
+                                        <Menu.Item href="https://www.linkedin.com/in/engindemirog/?originalSubdomain=tr" target="_blank">
+                                            <Icon circular inverted link name="linkedin" />
+                                        </Menu.Item>
+                                        <Menu.Item href="https://github.com/engindemirog" target="_blank">
+                                            <Icon circular inverted link name="github" />
+                                        </Menu.Item>
+                                    </Menu>
                                 </Grid.Column>
                             </Grid>
                         </Grid.Column>
@@ -53,10 +60,17 @@ export default function TeamSection() {
                                     <Header dividing className="teamPersonHeader" content="Berkcan Serbest" />
                                     <Item className="teamPersonContent" meta="Developer" />
                                     <Divider />
-                                    <Icon circular inverted link name="instagram" />
-                                    <Icon circular inverted link name="linkedin" />
-                                    <Icon circular inverted link name="github" />
-                                    <Icon circular inverted link name="discord" />
+                                    <Menu compact secondary widths="5">
+                                        <Menu.Item href="https://www.instagram.com/brkcnsrbstt/" target="_blank">
+                                            <Icon circular inverted link name="instagram" />
+                                        </Menu.Item>
+                                        <Menu.Item href="https://www.linkedin.com/in/berkcan-serbest-ba6073a4/" target="_blank">
+                                            <Icon circular inverted link name="linkedin" />
+                                        </Menu.Item>
+                                        <Menu.Item href="https://github.com/KB-Silence" target="_blank">
+                                            <Icon circular inverted link name="github" />
+                                        </Menu.Item>
+                                    </Menu>
                                 </Grid.Column>
                             </Grid>
                         </Grid.Column>

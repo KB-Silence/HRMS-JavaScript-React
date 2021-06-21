@@ -43,13 +43,16 @@
 .pages {
   padding-top: 100px !important;
   padding-bottom: 100px !important;
-  height: 89.4vh !important;
+  height: 100vh !important;
 }
 
 /*##############################################################################################*/
 /* Error Messages Settings */
 .errorMessage {
   padding: 0.2em !important;
+  margin-top: -10px !important;
+  margin-bottom: 5px !important;
+  font-size: 11px !important;
   font-weight: bold !important;
 }
 
@@ -256,10 +259,10 @@
 
 .footer {
   padding: 1em 0em;
-  margin-top: -5px;
   border-radius: 10px;
   background: linear-gradient(rgba(0,0,0, 0.8), rgba(0, 0, 0, 0.8)), url(./images/footer.jpg) no-repeat center !important;
   background-size: cover !important;
+  position: relative;
 }
 
 /* Footer => FooterHeader -- FooterSubContent */
@@ -334,4 +337,12 @@
   letter-spacing: 5px;
   color: rgb(0, 0, 0) !important;
   background: linear-gradient(to left, #a8ff78, #78ffd6) !important;
+}
+
+.addAdvertModalHeader,
+.addAdvertModalAction {
+  font-family: 'Acme', sans-serif !important;
+  letter-spacing: 2px !important;
+  color: rgb(12, 100, 49) !important;
+  background: linear-gradient(to right, #ffeeee, #ddefbb) !important;
 }

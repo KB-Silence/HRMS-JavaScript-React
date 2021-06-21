@@ -135,7 +135,7 @@ export default function EmployerRegister() {
                                             <Checkbox label=" ' I agree to the Terms and Conditions ' "
                                                 id="agree"
                                                 onChange={handleChange}
-                                                style={{fontWeight:"bold"}}
+                                                style={{ fontWeight: "bold" }}
                                                 type="checkbox" />
                                         </Form.Field>
                                         {errors.agree && (
@@ -147,7 +147,10 @@ export default function EmployerRegister() {
                                         <Button size="large" compact fluid icon="coffee" labelPosition="right" content="Let's Start"
                                             type="submit"
                                             disabled={!values.agree}
-                                            style={{ background: "linear-gradient(to right, #11998e, #38ef7d)", color: "white", borderRadius: "10px/10px" }} />
+                                            style={{
+                                                background: "linear-gradient(to right, #11998e, #38ef7d)",
+                                                color: "white", borderRadius: "10px/10px"
+                                            }} />
                                     </Segment>
                                 </Form>
                             </React.Fragment>
