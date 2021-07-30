@@ -73,25 +73,13 @@
 }
 
 /* Navbar Buttons */
-.registerDropdown, .loginDropdown {
-  margin-right: 10px !important;
+.registerButton, .loginButton {
+  margin-left: 10px !important;
+  margin-right: 5px !important;
   color: #fff !important;
-  letter-spacing: 1px;
-  background: linear-gradient(to right, #666b79, #598ada) !important;
-}
-
-.registerDropMenu,
-.loginDropMenu {
-  margin-top: 5px !important;
-  margin-left: -40px !important ;
-  background: linear-gradient(to left, #772626, #3f4252) !important;
-}
-
-.registerDropMenu span,
-.loginDropMenu span {
-  color: #fff !important;
-  font-weight: lighter;
-  letter-spacing: 1px; 
+  letter-spacing: 2px;
+  background: linear-gradient(to right, #6a7081, #598ada) !important;
+  border-radius: 10px !important;
 }
 
 /*##############################################################################################*/
@@ -296,6 +284,17 @@
   letter-spacing: 2px;
   border-radius: 10px/10px !important;
   color: rgb(255, 255, 255) !important;
+}
+
+.registerLabel {
+  margin-top: 5rem !important;
+  font-size: 15px !important;
+  letter-spacing: 1px;
+  font-weight: lighter !important;
+  padding: 8px 30px 8px 30px !important;
+  border-radius: 15px/15px !important;
+  color: #491919 !important;
+  background: rgba(118, 214, 94, 0.6) !important;
 }
 
 /*##############################################################################################*/

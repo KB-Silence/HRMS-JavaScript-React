@@ -18,7 +18,7 @@ export default function Navi({ isAuthenticated, userType, signOut }) {
                     <Menu.Item />
                     <Menu.Item className='naviLogo' name="home" onClick={handleItemClick} as={Link} to="/" active content='HRMS.com' />
                     <Menu.Item style={{ margin: "0px", padding: "0px", paddingLeft: "15px" }}>
-                        {isAuthenticated && userType==="employer" ? <EmployerSignIn signOut={signOut} /> : <RegisterAndLogin />}
+                        {isAuthenticated && userType==="employer" ? <EmployerSignIn signOut={signOut} /> : <RegisterAndLogin setActiveItem={handleItemClick} />}
                     </Menu.Item>
 
                     <Menu.Menu className="naviSecondaryMenu" position='right'>

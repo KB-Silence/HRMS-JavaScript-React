@@ -4,7 +4,7 @@ import { Formik } from 'formik';
 import * as yup from 'yup';
 import { useHistory } from 'react-router-dom';
 
-export default function UnemployedLogin() {
+export default function Login() {
     const history = useHistory()
     return (
         <div className="pages">
@@ -24,7 +24,7 @@ export default function UnemployedLogin() {
                         }}>
                         {({ values, errors, handleChange, handleSubmit, touched }) => (
                             <React.Fragment>
-                                <Header textAlign="center" content="Log in to your account."
+                                <Header textAlign="center" content="Login to your account."
                                     style={{ color: "#404040" }} />
                                 <Form size="small" onSubmit={handleSubmit}>
                                     <Segment stacked piled style={{ borderRadius: "10px/10px" }}>

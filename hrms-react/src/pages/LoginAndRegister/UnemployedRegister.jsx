@@ -1,7 +1,8 @@
 import React from 'react'
-import { Grid, Header, Form, Segment, Button, Checkbox, Message } from 'semantic-ui-react'
+import { Grid, Header, Form, Segment, Button, Checkbox, Message, Label } from 'semantic-ui-react'
 import { Formik } from 'formik';
 import * as yup from 'yup';
+import { Link } from 'react-router-dom';
 
 export default function UnemployedRegister() {
 
@@ -44,7 +45,7 @@ export default function UnemployedRegister() {
                     >
                         {({ values, errors, handleChange, handleSubmit, touched }) => (
                             <React.Fragment>
-                                <Header textAlign="center" content="Create your account."
+                                <Header textAlign="center" content="Create your account to find your dream job."
                                     style={{ color: "#404040" }} />
                                 <Form onSubmit={handleSubmit}>
                                     <Segment stacked piled style={{ borderRadius: "10px/10px" }}>
@@ -171,6 +172,8 @@ export default function UnemployedRegister() {
                                             type="submit"
                                             disabled={!values.agree}
                                             style={{ background: "linear-gradient(to right, #11998e, #38ef7d)", color: "white", borderRadius: "10px/10px" }} />
+                                        <Label className="registerLabel" as={Link} to="/employerRegister"
+                                            content="Click here to register as employer." />
                                     </Segment>
                                 </Form>
                             </React.Fragment>

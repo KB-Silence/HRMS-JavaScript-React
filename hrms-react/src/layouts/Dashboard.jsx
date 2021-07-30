@@ -7,10 +7,10 @@ import ContactSection from '../pages/MainSections/ContactSection'
 import EmployerRegister from '../pages/LoginAndRegister/EmployerRegister'
 import UnemployedRegister from '../pages/LoginAndRegister/UnemployedRegister'
 import EmployerLogin from '../pages/LoginAndRegister/EmployerLogin'
-import UnemployedLogin from '../pages/LoginAndRegister/UnemployedLogin'
 import EmployerAdvertisements from '../pages/EmployerAdvertisements'
 import AddAdvertisement from '../pages/AddAdvertisement'
 import JobAdvertisementList from '../pages/JobAdvertisementList'
+import Login from '../pages/LoginAndRegister/Login'
 
 
 export default function Dashboard({isAuthenticated, userType}) {
@@ -29,7 +29,7 @@ export default function Dashboard({isAuthenticated, userType}) {
                     <EmployerLogin signIn={isAuthenticated} userType={userType} />
                 </React.Fragment>
             )} />
-            <Route exact path="/unemployedLogin" component={UnemployedLogin} />
+            <Route exact path="/login" component={Login} />
             <Route exact path="/getAllAdvertisements" />
 
             <Route exact path="/employerAdvertisements" component={EmployerAdvertisements} />
