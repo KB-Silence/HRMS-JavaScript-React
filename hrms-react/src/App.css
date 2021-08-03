@@ -47,13 +47,27 @@
 }
 
 /*##############################################################################################*/
-/* Error Messages Settings */
+/* Error Messages and Toastify Settings */
 .errorMessage {
   padding: 0.2em !important;
   margin-top: -10px !important;
   margin-bottom: 5px !important;
   font-size: 11px !important;
   font-weight: bold !important;
+}
+
+.Toastify__toast--default {
+  color: rgb(255, 255, 255) !important;
+  font-weight: bolder !important;
+  letter-spacing: 1px;
+  background: linear-gradient(to left, #870000, #c43c0f) !important;
+}
+
+.Toastify__toast--success {
+  color: rgb(255, 255, 255) !important;
+  font-weight: bolder !important;
+  letter-spacing: 1px;
+  background: linear-gradient(to left, #11998e, #38ef7d) !important;
 }
 
 /*##############################################################################################*/
@@ -85,7 +99,7 @@
 /*##############################################################################################*/
 /* Home Page => MainSection -- MainContainer */
 .mainSection {
-  min-height: 89.4vmin !important;
+  min-height: 100vh !important;
 }
 
 .mainContainer {
@@ -210,7 +224,7 @@
 /*##############################################################################################*/
 /* HomePage => ContactSection -- ContactContainer */
 .contactSection {
-  min-height: 89.4vh !important;
+  min-height: 100vh !important;
 }
 
 /* ContactSection => ContactHeader -- ContactContent*/
@@ -261,30 +275,6 @@
 
 /*##############################################################################################*/
 /* Pages => Register Page Settings */
-.registerEmployer {
-  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),url(/src/images/employer.png) no-repeat !important;
-  background-size: cover !important;
-  height: 140px;
-  margin: 10px;
-  border-radius: 10px/10px !important;
-}
-
-.registerUnemployed {
-  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),url(/src/images/unemployed.jpeg) no-repeat !important;
-  background-size: cover !important;
-  height: 140px;
-  margin: 10px;
-  border-radius: 10px/10px !important;
-}
-
-.registerToButton {
-  background: linear-gradient(to right, #64a745, #a8e063) !important;
-  color: #fff !important;
-  font-weight: bold !important;
-  letter-spacing: 2px;
-  border-radius: 10px/10px !important;
-  color: rgb(255, 255, 255) !important;
-}
 
 .registerLabel {
   margin-top: 5rem !important;
@@ -297,37 +287,34 @@
   background: rgba(118, 214, 94, 0.6) !important;
 }
 
+.registerHeader, .loginHeader {
+  letter-spacing: 2px;
+  color: #000000 !important;
+  font-weight: bolder !important;
+}
+
 /*##############################################################################################*/
 /* Sign In => Employer Sign In */
-.employerSignDropdown {
+.signDropdown {
   color: #fff !important;
   letter-spacing: 1px;
 }
 
-.employerSignDropdownContent span,
-.list.icon,
-.circle.icon,
-.sign-out.icon {
+.signDropdownContent span{
   color:rgb(0, 0, 0) !important;
   font-size: 14px !important;
   font-weight: bold !important;
 }
 
-.employerSignAllButton {
-  margin-left: -15px !important;
-  margin-bottom: -10px !important;
-  border-radius: 15px !important;
-  font-weight: lighter !important;
-  letter-spacing: 1px;
-  font-size: 13px !important;
-  color: white !important;
-  background: #b92b2b !important;
+.signDropdown .icon {
+  margin-left: 5px !important;
 }
 
 /*##############################################################################################*/
 /* Add Advertisement => Dropdown */
 .addAdvertDropdown {
   margin-bottom: 15px !important;
+  margin-right: 0.7em !important;
 }
 
 /* Add Advertisement => Add Button */
@@ -344,4 +331,11 @@
   letter-spacing: 2px !important;
   color: rgb(12, 100, 49) !important;
   background: linear-gradient(to right, #ffeeee, #ddefbb) !important;
+}
+
+
+
+.formInput {
+  margin: auto !important;
+  margin-bottom: 1em !important;
 }

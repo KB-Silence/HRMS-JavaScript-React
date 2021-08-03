@@ -1,0 +1,1 @@
+export const authInitial = [{login:false, user:{userId:0, userType:0}}]

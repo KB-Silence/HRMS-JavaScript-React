@@ -13,9 +13,7 @@ export default function JobAdvertisementList() {
     return (
         <div className="pages">
             <Container>
-                <Header floated='left' color='grey'>
-                    <Header.Content>Job Advertisement List</Header.Content>
-                </Header>
+                <Header floated='left' color='black' size="large" content="Job Advertisement List" />
                 <Table color="olive" celled selectable>
                     <Table.Header>
                         <Table.Row>

@@ -6,16 +6,22 @@ import TeamSection from '../pages/MainSections/TeamSection'
 import ContactSection from '../pages/MainSections/ContactSection'
 import EmployerRegister from '../pages/LoginAndRegister/EmployerRegister'
 import UnemployedRegister from '../pages/LoginAndRegister/UnemployedRegister'
-import EmployerLogin from '../pages/LoginAndRegister/EmployerLogin'
 import EmployerAdvertisements from '../pages/EmployerAdvertisements'
 import AddAdvertisement from '../pages/AddAdvertisement'
 import JobAdvertisementList from '../pages/JobAdvertisementList'
 import Login from '../pages/LoginAndRegister/Login'
+import { ToastContainer, Zoom } from 'react-toastify'
 
 
-export default function Dashboard({isAuthenticated, userType}) {
+export default function Dashboard() {
     return (
         <div>
+            <ToastContainer className="toastContainer"
+                style={{ marginTop: "5em" }}
+                position="top-right"
+                autoClose={2500}
+                transition={Zoom}
+                closeOnClick />
             <Route exact path="/" component={MainSection} />
             <Route exact path="/services" component={ServiceSection} />
             <Route exact path="/team" component={TeamSection} />
@@ -23,12 +29,7 @@ export default function Dashboard({isAuthenticated, userType}) {
 
             <Route exact path="/employerRegister" component={EmployerRegister} />
             <Route exact path="/unemployedRegister" component={UnemployedRegister} />
-            
-            <Route exact path="/employerLogin" render={()=>(
-                <React.Fragment>
-                    <EmployerLogin signIn={isAuthenticated} userType={userType} />
-                </React.Fragment>
-            )} />
+
             <Route exact path="/login" component={Login} />
             <Route exact path="/getAllAdvertisements" />
 
