@@ -11,6 +11,8 @@ import AddAdvertisement from '../pages/AddAdvertisement'
 import JobAdvertisementList from '../pages/JobAdvertisementList'
 import Login from '../pages/LoginAndRegister/Login'
 import { ToastContainer, Zoom } from 'react-toastify'
+import JobAdvertisementDetail from '../pages/JobAdvertisementDetail'
+import JobAdvertisementFavorite from '../pages/JobAdvertisementFavorite'
 
 
 export default function Dashboard() {
@@ -35,7 +37,9 @@ export default function Dashboard() {
 
             <Route exact path="/employerAdvertisements" component={EmployerAdvertisements} />
             <Route exact path="/addAdvertisement" component={AddAdvertisement} />
-            <Route exact path="/allJobAdvertisements" component={JobAdvertisementList} />
+            <Route exact path="/jobAdvertisements" component={JobAdvertisementList} />
+            <Route exact path="/jobAdvertisements/:advertId" component={JobAdvertisementDetail} />
+            <Route exact path="/jobAdvertisementFavorites" component={JobAdvertisementFavorite} />
         </div>
     )
 }

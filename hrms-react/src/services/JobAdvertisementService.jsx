@@ -5,6 +5,10 @@ export default class JobAdvertisementService {
         return axios.post("http://localhost:8080/api/jobAdvertisements/addAdvertisement", jobAdvertisement)
     }
 
+    getByApprovedAndFilter(pageNo, pageSize, advertFilter) {
+        return axios.post(`http://localhost:8080/api/jobAdvertisements/getByApprovedAndFilter?pageNo=${pageNo}&pageSize=${pageSize}`,advertFilter)
+    }
+
     changeAdvertisementStatus(advertId, status) {
         return axios.put(`http://localhost:8080/api/jobAdvertisements/changeAdvertisementStatus?advertId=${advertId}&status=${status}`)
     }
@@ -28,9 +32,4 @@ export default class JobAdvertisementService {
     getByAdvertStatusTrueAndEmployerId(employerId) {
         return axios.get(`http://localhost:8080/api/jobAdvertisements/getByAdvertStatusTrueAndEmployerId?employerId=${employerId}`)
     }
-
-    getByApprovedAndFilter(pageNo, pageSize, advertFilter) {
-        return axios.get(`http://localhost:8080/api/jobAdvertisements/getByApprovedAndFilter?pageNo=${pageNo}&pageSize=${pageSize}`,advertFilter)
-    }
-
 }

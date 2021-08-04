@@ -43,7 +43,11 @@
 .pages {
   padding-top: 100px !important;
   padding-bottom: 100px !important;
-  height: 100vh !important;
+  height: 100% !important;
+}
+
+.allAdvertsPage {
+  height: auto !important;
 }
 
 /*##############################################################################################*/
@@ -260,11 +264,10 @@
 /* Footer */
 
 .footer {
+  margin-top: 5em !important;
   padding: 1em 0em;
-  border-radius: 10px;
   background: linear-gradient(rgba(0,0,0, 0.8), rgba(0, 0, 0, 0.8)), url(./images/footer.jpg) no-repeat center !important;
   background-size: cover !important;
-  position: relative;
 }
 
 /* Footer => FooterHeader -- FooterSubContent */
@@ -325,17 +328,45 @@
   background: linear-gradient(to left, #a8ff78, #78ffd6) !important;
 }
 
-.addAdvertModalHeader,
-.addAdvertModalAction {
-  font-family: 'Acme', sans-serif !important;
-  letter-spacing: 2px !important;
-  color: rgb(12, 100, 49) !important;
-  background: linear-gradient(to right, #ffeeee, #ddefbb) !important;
-}
+
+
+
+
+
+
 
 
 
 .formInput {
   margin: auto !important;
   margin-bottom: 1em !important;
+}
+
+.filterCheckbox {
+  letter-spacing: 1px;
+  padding-left: 10px !important;
+  margin-bottom: 5px !important;
+}
+
+.filterLabel {
+  letter-spacing: 1px;
+  margin-top: -1px !important;
+  color: #000000 !important;
+  background: rgb(162, 240, 162) !important;
+}
+
+.filterButton {
+  color: #000000 !important;
+  letter-spacing: 4px;
+  padding-left: 10em !important;
+  padding-right: 10em !important;
+  background: linear-gradient(to left, #a8ff78, #78ffd6) !important;
+}
+
+
+
+.favoriteHeader {
+  font-family: 'Acme', sans-serif !important;
+  letter-spacing: 1px;
+  font-weight: lighter !important;
 }

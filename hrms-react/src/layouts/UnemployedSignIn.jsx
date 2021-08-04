@@ -13,7 +13,8 @@ export default function UnemployedSignIn() {
         dispatch(userLogout(user))
         history.push("/")
     }
-
+    
+    let message = `Welcome ${authInitial[0].user.name}`
     return (
         <Menu secondary stackable size="large" position='left'>
             <Menu.Item>
@@ -22,11 +23,11 @@ export default function UnemployedSignIn() {
                 </Image>
             </Menu.Item>
             <Menu.Item>
-                <Dropdown className="signDropdown" pointing text="Welcome Unemployed" icon="hand point down" >
+                <Dropdown className="signDropdown" pointing text={message} icon="hand point down" >
                     <Dropdown.Menu>
                         <Dropdown.Item className="signDropdownContent" content="Favorite Adverts"
-                            as={Link} to="/employerAdvertisements" />
-                        <Dropdown.Item className="signDropdownContent" content='See All Adverts' as={Link} to="allJobAdvertisements" />
+                            as={Link} to="/jobAdvertisementFavorites" />
+                        <Dropdown.Item className="signDropdownContent" content='See All Adverts' as={Link} to="jobAdvertisements" />
                         <Dropdown.Item className="signDropdownContent" content='Profile' />
                         <Dropdown.Item className="signDropdownContent" content='Sign Out' onClick={() => handleLogout(authInitial[0].user)} />
                     </Dropdown.Menu>
