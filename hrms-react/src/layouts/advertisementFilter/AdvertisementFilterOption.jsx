@@ -1,4 +1,3 @@
-import { Formik } from 'formik'
 import React, { useState } from 'react'
 import { useEffect } from 'react'
 import { Button, Checkbox, Container, Divider, Dropdown, Label, Segment } from 'semantic-ui-react'
@@ -13,8 +12,8 @@ export default function AdvertisementFilterOption({ clickEvent }) {
 
     const [cityIndex, setCityIndex] = useState([])
     const [positionIndex, setPositionIndex] = useState([])
-    const [typeIndex, setTypeIndex] = useState([])
-    const [timeIndex, setTimeIndex] = useState([])
+    const [typeIndex] = useState([])
+    const [timeIndex] = useState([])
 
     useEffect(() => {
         let littleService = new LittleService()

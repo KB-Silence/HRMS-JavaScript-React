@@ -22,7 +22,7 @@ export default function TeamSection() {
 
                     <Grid.Row>
                         <Grid.Column tablet="8">
-                            <Image size="large" fluid circular centered src={teamImage} />
+                            <Image size="large" circular centered src={teamImage} />
                         </Grid.Column>
                     </Grid.Row>
 
@@ -30,7 +30,7 @@ export default function TeamSection() {
                         <Grid.Column>
                             <Grid verticalAlign="middle" columns="2">
                                 <Grid.Column tablet="16" computer="8">
-                                    <Image circular spaced src={myTeach} fluid />
+                                    <Image circular spaced src={myTeach} />
                                 </Grid.Column>
                                 <Grid.Column tablet="16" computer="8">
                                     <Header dividing className="teamPersonHeader" content="Engin Demiroğ" />
@@ -54,7 +54,7 @@ export default function TeamSection() {
                         <Grid.Column>
                             <Grid verticalAlign="middle" columns="2">
                                 <Grid.Column tablet="16" computer="8">
-                                    <Image circular spaced src={myImage} fluid />
+                                    <Image circular spaced src={myImage} />
                                 </Grid.Column>
                                 <Grid.Column tablet="16" computer="8" >
                                     <Header dividing className="teamPersonHeader" content="Berkcan Serbest" />

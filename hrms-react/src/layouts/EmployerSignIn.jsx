@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link, useHistory } from 'react-router-dom'
 import { Menu, Dropdown } from 'semantic-ui-react'
 import { userLogout } from '../store/Actions/authActions'
+import { setActive } from '../store/Actions/naviActions'
 
 export default function EmployerSignIn() {
 
@@ -12,6 +13,7 @@ export default function EmployerSignIn() {
     const handleLogout=(user) => {
         dispatch(userLogout(user))
         history.push("/")
+        dispatch(setActive("home"))
     }
 
     return (

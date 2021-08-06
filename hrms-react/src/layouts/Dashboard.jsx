@@ -33,12 +33,11 @@ export default function Dashboard() {
             <Route exact path="/unemployedRegister" component={UnemployedRegister} />
 
             <Route exact path="/login" component={Login} />
-            <Route exact path="/getAllAdvertisements" />
 
             <Route exact path="/employerAdvertisements" component={EmployerAdvertisements} />
             <Route exact path="/addAdvertisement" component={AddAdvertisement} />
-            <Route exact path="/jobAdvertisements" component={JobAdvertisementList} />
-            <Route exact path="/jobAdvertisements/:advertId" component={JobAdvertisementDetail} />
+            <Route exact path="/allJobAdvertisements" component={JobAdvertisementList} />
+            <Route exact path="/jobAdvertisement/:advertId" component={JobAdvertisementDetail} />
             <Route exact path="/jobAdvertisementFavorites" component={JobAdvertisementFavorite} />
         </div>
     )

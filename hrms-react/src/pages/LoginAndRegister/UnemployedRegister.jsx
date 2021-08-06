@@ -3,8 +3,11 @@ import { Header, Form, Segment, Button, Checkbox, Message, Label } from 'semanti
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import { Link } from 'react-router-dom';
+import ActiveItem from '../../utils/ActiveItem'
 
-export default function UnemployedRegister() {
+export default function UnemployedRegister() { 
+    
+    ActiveItem()
 
     const initialValues = {
         firstName: "",
@@ -32,13 +35,15 @@ export default function UnemployedRegister() {
         agree: yup.bool().oneOf([true], "You must accept the terms of use.")
     })
 
-    const onSubmit = (values, {resetForm}) => {
+    const onSubmit = (values, { resetForm }) => {
         console.log(values);
         setTimeout(() => {
             resetForm()
-        }, 2000)}
+        }, 2000)
+    }
     return (
-        <div className="pages">
+
+        <div className="pages" style={{ paddingLeft: "1em", paddingRight: "1em" }}>
             <Formik initialValues={initialValues}
                 validationSchema={schema}
                 onSubmit={onSubmit}

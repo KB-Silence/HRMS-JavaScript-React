@@ -2,9 +2,11 @@ import React from 'react'
 import { Header, Form, Segment, Button, Checkbox, Message } from 'semantic-ui-react'
 import { Formik } from 'formik';
 import * as yup from 'yup';
-
+import ActiveItem from '../../utils/ActiveItem'
 
 export default function EmployerRegister() {
+
+    ActiveItem()
 
     const initialValues = {
         companyName: "",
@@ -32,7 +34,8 @@ export default function EmployerRegister() {
     })
     
     return (
-        <div className="pages">
+        <div className="pages employerRegister" 
+        style={{paddingLeft:"1em",paddingRight:"1em"}}>
             <Formik initialValues={initialValues}
                 validationSchema={schema}
                 onSubmit={(values, { resetForm }) => {

@@ -27,6 +27,7 @@
 .section {
   padding-top: 100px;
   padding-bottom: 100px;
+  height: 100vh !important;
 }
 
 /* Containers */
@@ -36,18 +37,36 @@
 .serviceGridColumn {
   background: linear-gradient(rgba(75, 73, 73, 0.4), rgba(75, 73, 73, 0.4)) !important;
   border-radius: 10px/10px;
-  margin-top: 10px;
+  margin-top: 5em;
 }
 
 /* Pages Settings */
 .pages {
   padding-top: 100px !important;
   padding-bottom: 100px !important;
-  height: 100% !important;
+  height: 100vh !important;
 }
 
-.allAdvertsPage {
-  height: auto !important;
+@media only screen and (max-width: 995px) {
+  .pages {
+    height: auto !important;
+  }
+  .footer {
+    border-radius: 10px/10px !important;
+    margin-top: 1em !important;
+  }
+
+  .loginPage,
+  .employerRegister,
+  .advertDetail {
+    height: auto !important;
+  }
+}
+
+@media only screen and (max-width:1226px) {
+  .advertList {
+    height: auto !important;
+  }
 }
 
 /*##############################################################################################*/
@@ -227,9 +246,6 @@
 
 /*##############################################################################################*/
 /* HomePage => ContactSection -- ContactContainer */
-.contactSection {
-  min-height: 100vh !important;
-}
 
 /* ContactSection => ContactHeader -- ContactContent*/
 .contactHeader {
@@ -264,8 +280,7 @@
 /* Footer */
 
 .footer {
-  margin-top: 5em !important;
-  padding: 1em 0em;
+  padding: 2em 0em;
   background: linear-gradient(rgba(0,0,0, 0.8), rgba(0, 0, 0, 0.8)), url(./images/footer.jpg) no-repeat center !important;
   background-size: cover !important;
 }
@@ -314,10 +329,18 @@
 }
 
 /*##############################################################################################*/
+/* Add Advertisement => Segment */
+
+.addAdvertSegment {
+  border-radius: 10em !important;
+  margin-right: 50px !important;
+  margin-left: 50px !important;
+  background-color: rgba(255, 255, 255, 0.289) !important;
+}
+
 /* Add Advertisement => Dropdown */
 .addAdvertDropdown {
-  margin-bottom: 15px !important;
-  margin-right: 0.7em !important;
+  margin: 0px 2px 0px 2px !important;
 }
 
 /* Add Advertisement => Add Button */
@@ -328,14 +351,46 @@
   background: linear-gradient(to left, #a8ff78, #78ffd6) !important;
 }
 
+/* Add Advertisement => Label */
+.addAdvertLabel {
+  margin-bottom: 4px !important;
+  padding: 5px 10px 5px 10px !important;
+  letter-spacing: 2px !important;
+  color: white !important;
+  background: rgba(17, 5, 250, 0.2) !important;
+}
 
+/* Add Advertisement => GridColumn */
+.addAdvertColumn {
+  margin: 0px 20px 0px 20px !important;
+}
 
+/* Add Advertisement => Media Query */
+@media only screen and (max-width: 1034px) {
+  .addAdvertLabel {
+    font-size: 11px !important;
+  }
+}
 
+@media only screen and (max-width: 991px) {
+  .addAdvertLabel {
+    margin-top: 1em !important;
+    margin-bottom: 2px !important;
+  }
+}
 
+@media only screen and (max-width: 767px) {
+  .addAdvertButton {
+    padding: 1.5em !important;
+  }
 
+  .addAdvertLabel {
+    margin-top: 0px !important;
+    margin-bottom: 5px !important;
+  }
+} 
 
-
-
+/*##############################################################################################*/
 
 .formInput {
   margin: auto !important;
@@ -363,10 +418,18 @@
   background: linear-gradient(to left, #a8ff78, #78ffd6) !important;
 }
 
-
-
 .favoriteHeader {
   font-family: 'Acme', sans-serif !important;
   letter-spacing: 1px;
   font-weight: lighter !important;
+}
+
+.unemployedAvatar {
+  margin: 5px 0px 0px 5px !important;
+  padding: 0px !important;
+  font-size: 1.5em !important;
+}
+
+.menuAvatarItem {
+  padding: 5px 0px 0px 5px !important;
 }

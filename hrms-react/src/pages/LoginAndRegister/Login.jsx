@@ -7,8 +7,12 @@ import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { userLogin } from '../../store/Actions/authActions';
 import { toast } from "react-toastify";
+import ActiveItem from '../../utils/ActiveItem'
+import { setActive } from '../../store/Actions/naviActions';
 
 export default function Login() {
+
+    ActiveItem()
 
     let authService = new AuthService()
     const history = useHistory()
@@ -29,13 +33,14 @@ export default function Login() {
             handleLogin(result.data.data)
             toast.success(result.data.message)
             history.push("/")
+            dispatch(setActive("home"))
         }).catch((result) => {
             toast(result.response.data.message)
         })
     }
 
     return (
-        <div className="pages" >
+        <div className="pages loginPage">
             <Grid textAlign="center" verticalAlign="middle">
                 <Grid.Column mobile="15" tablet="8" computer="6">
                     <Formik

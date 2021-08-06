@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
-import { Table, Button, Header, Container, Pagination, Dropdown, Grid, Menu } from 'semantic-ui-react'
+import { Table, Button, Header, Container, Pagination, Dropdown } from 'semantic-ui-react'
+import { toast } from 'react-toastify'
+import { Link } from 'react-router-dom'
 import JobAdvertisementService from '../services/JobAdvertisementService'
 import JobAdvertFavoriteService from '../services/JobAdvertFavoriteService'
-import { toast } from 'react-toastify'
 import AdvertisementFilterOption from '../layouts/advertisementFilter/AdvertisementFilterOption'
-import { Link } from 'react-router-dom'
+import ActiveItem from '../utils/ActiveItem'
 
 export default function JobAdvertisementList() {
+
+    ActiveItem()
 
     const [jobAdvertisements, setjobAdvertisements] = useState([])
     let [favorites, setFavorites] = useState([])
@@ -81,66 +84,74 @@ export default function JobAdvertisementList() {
     ]
 
     return (
-        <div className="pages allAdvertsPage">
-            <Container fluid style={{ paddingLeft: "3em", paddingRight: "3em" }}>
-                <AdvertisementFilterOption clickEvent={handleFilterClick} />
-                <Table
-                    selectable stackable compact sortable
-                    style={{ paddingLeft: "1vh", paddingRight: "1vh" }}
-                    color="olive" celled size="small">
-                    <Table.Header>
+        <Container className="pages advertList" fluid style={{ paddingLeft: "3em", paddingRight: "3em" }}>
+            <AdvertisementFilterOption clickEvent={handleFilterClick} />
+            <Table
+                selectable stackable compact sortable
+                style={{ paddingLeft: "1vh", paddingRight: "1vh" }}
+                color="olive" celled size="small">
+                <Table.Header>
+                    <tr><td>
                         <Header
-                            style={{ margin: "7px", borderRadius: "20%", textAlign: "center" }}
-                            color="grey" dividing as='h3' content="Job Advertisements" />
-                        <Table.Row>
-                            <Table.HeaderCell>Position</Table.HeaderCell>
-                            <Table.HeaderCell>Company</Table.HeaderCell>
-                            <Table.HeaderCell>Salary(TL)</Table.HeaderCell>
-                            <Table.HeaderCell>Quota</Table.HeaderCell>
-                            <Table.HeaderCell>Last Application</Table.HeaderCell>
-                            <Table.HeaderCell>City</Table.HeaderCell>
-                            <Table.HeaderCell>Details</Table.HeaderCell>
+                            style={{
+                                margin: "7px",
+                                borderRadius: "20%",
+                                textAlign: "center"
+                            }}
+                            color="grey" dividing size="large" content="Job Advertisements" />
+                    </td></tr>
+                    <Table.Row>
+                        <Table.HeaderCell>Position</Table.HeaderCell>
+                        <Table.HeaderCell>Company</Table.HeaderCell>
+                        <Table.HeaderCell>Salary(TL)</Table.HeaderCell>
+                        <Table.HeaderCell>Quota</Table.HeaderCell>
+                        <Table.HeaderCell>Last Application</Table.HeaderCell>
+                        <Table.HeaderCell>City</Table.HeaderCell>
+                        <Table.HeaderCell>Details</Table.HeaderCell>
 
-                            {authInitial[0].login && authInitial[0].user.userType === 1 &&
-                                <Table.HeaderCell>Add to Favorites</Table.HeaderCell>}
-                        </Table.Row>
-                    </Table.Header>
-                    <Table.Body>
-                        {
-                            jobAdvertisements.map(jobAdvertisement => (
-                                <Table.Row key={jobAdvertisement.advertId}>
-                                    <Table.Cell>{jobAdvertisement.position.positionName}</Table.Cell>
-                                    <Table.Cell>{jobAdvertisement.employer.companyName}</Table.Cell>
-                                    <Table.Cell>{jobAdvertisement.minSalary} - {jobAdvertisement.maxSalary}</Table.Cell>
-                                    <Table.Cell>{jobAdvertisement.quota}</Table.Cell>
-                                    <Table.Cell>
-                                        {(
-                                            (new Date(jobAdvertisement.lastApplication).getTime() - new Date(Date.now()).getTime()) / 86400000
-                                        )
-                                            .toString()
-                                            .split(".", 1)}{" "}
-                                        day
-                                    </Table.Cell>
-                                    <Table.Cell>{jobAdvertisement.city.cityName}</Table.Cell>
+                        {authInitial[0].login && authInitial[0].user.userType === 1 &&
+                            <Table.HeaderCell>Add to Favorites</Table.HeaderCell>}
+                    </Table.Row>
+                </Table.Header>
+                <Table.Body>
+
+                    {
+                        jobAdvertisements.map(jobAdvertisement => (
+                            <Table.Row key={jobAdvertisement.advertId}>
+                                <Table.Cell>{jobAdvertisement.position.positionName}</Table.Cell>
+                                <Table.Cell>{jobAdvertisement.employer.companyName}</Table.Cell>
+                                <Table.Cell>{jobAdvertisement.minSalary} - {jobAdvertisement.maxSalary}</Table.Cell>
+                                <Table.Cell>{jobAdvertisement.quota}</Table.Cell>
+                                <Table.Cell>
+                                    {(
+                                        (new Date(jobAdvertisement.lastApplication).getTime() - new Date(Date.now()).getTime()) / 86400000
+                                    )
+                                        .toString()
+                                        .split(".", 1)}{" "}
+                                    day
+                                </Table.Cell>
+                                <Table.Cell>{jobAdvertisement.city.cityName}</Table.Cell>
+                                <Table.Cell>
+                                    <Button
+                                        as={Link} to={`/jobAdvertisement/${jobAdvertisement.advertId}`}
+                                        circular content='Details' fluid negative size='small' />
+                                </Table.Cell>
+                                {
+                                    authInitial[0].login && authInitial[0].user.userType === 1 &&
                                     <Table.Cell>
                                         <Button
-                                            as={Link} to={`/jobAdvertisements/${jobAdvertisement.advertId}`}
-                                            circular content='Details' fluid negative size='small' />
+                                            size="small" content="Add"
+                                            circular fluid
+                                            disabled={favorites.includes(jobAdvertisement.advertId) ? true : false}
+                                            color={favorites.includes(jobAdvertisement.advertId) ? "grey" : "twitter"}
+                                            onClick={() => handleAddFavorite(jobAdvertisement.advertId)} />
                                     </Table.Cell>
-                                    {authInitial[0].login && authInitial[0].user.userType === 1 &&
-                                        <Table.Cell>
-                                            <Button
-                                                size="small" content="Add"
-                                                circular fluid
-                                                disabled={favorites.includes(jobAdvertisement.advertId) ? true : false}
-                                                color={favorites.includes(jobAdvertisement.advertId) ? "grey" : "twitter"}
-                                                onClick={() => handleAddFavorite(jobAdvertisement.advertId)} />
-                                        </Table.Cell>
-                                    }
-                                </Table.Row>
-                            ))}
-                    </Table.Body>
-                    <Table.Footer>
+                                }
+                            </Table.Row>
+                        ))}
+                </Table.Body>
+                <Table.Footer>
+                    <tr><td>
                         <Pagination
                             style={{ marginBottom: "5px" }}
                             firstItem={null}
@@ -158,9 +169,9 @@ export default function JobAdvertisementList() {
                                 setPageSize(data.value)
                                 handlePaginationSizeChange(data.value)
                             }} />
-                    </Table.Footer>
-                </Table>
-            </Container>
-        </div>
+                    </td></tr>
+                </Table.Footer>
+            </Table>
+        </Container>
     )
 }

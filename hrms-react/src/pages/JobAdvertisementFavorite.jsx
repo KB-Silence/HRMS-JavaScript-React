@@ -4,11 +4,13 @@ import { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { toast } from 'react-toastify'
-import { Button, Card, Container, Divider, Grid, Header, Segment, Table } from 'semantic-ui-react'
+import { Button, Card, Container, Divider, Grid, Header, Segment } from 'semantic-ui-react'
 import JobAdvertFavoriteService from '../services/JobAdvertFavoriteService'
+import ActiveItem from '../utils/ActiveItem'
 
 export default function JobAdvertisementFavorite() {
 
+    ActiveItem()
 
     const { authInitial } = useSelector(state => state.auth)
     const [favoriteAdverts, setFavoriteAdverts] = useState([])
@@ -16,6 +18,7 @@ export default function JobAdvertisementFavorite() {
     let jobAdvertFavoriteService = new JobAdvertFavoriteService()
 
     useEffect(() => {
+        let jobAdvertFavoriteService = new JobAdvertFavoriteService()
         jobAdvertFavoriteService.getByUnemployedId(authInitial[0].user.id).then((result) => {
             setFavoriteAdverts(result.data.data)
         })
@@ -32,7 +35,6 @@ export default function JobAdvertisementFavorite() {
 
     return (
         <Container className="pages" >
-
             <Grid stackable textAlign="center" verticalAlign="middle">
                 <Grid.Row>
                     <Grid.Column mobile="16" tablet="12" computer="10">
@@ -53,7 +55,7 @@ export default function JobAdvertisementFavorite() {
                 <Grid stackable textAlign="center" columns="4" container style={{ marginTop: "1em" }}>
                     <Grid.Row stretched divided>
                         {favoriteAdverts?.map((favoriteAdvert) => (
-                            <Grid.Column style={{ marginTop: "1em" }} mobile="16" tablet="6" computer="4" largeScreen="4">
+                            <Grid.Column key={favoriteAdvert.favoriteId} style={{ marginTop: "1em" }} mobile="16" tablet="6" computer="4" largeScreen="4">
                                 <Card>
                                     <Card.Content>
                                         <Card.Header className="favoriteHeader" style={{marginBottom:"5px"}}>
@@ -83,7 +85,7 @@ export default function JobAdvertisementFavorite() {
                                     <Card.Content>
                                         <Button
                                             circular basic
-                                            as={Link} to={`/jobAdvertisements/${favoriteAdvert.jobAdvertisement.advertId}`}
+                                            as={Link} to={`/jobAdvertisement/${favoriteAdvert.jobAdvertisement.advertId}`}
                                             color="green" content="Detail" />
                                         <Button
                                             circular basic
@@ -101,55 +103,3 @@ export default function JobAdvertisementFavorite() {
         </Container >
     )
 }
-
-
-{/* <Card fluid>
-                <Card.Content
-                    header="Your favorite job advertisements." />
-                <Table>
-                    <Table.Header>
-                        <Table.Row>
-                            <Table.HeaderCell>Company Name</Table.HeaderCell>
-                            <Table.HeaderCell>Position</Table.HeaderCell>
-                            <Table.HeaderCell>City</Table.HeaderCell>
-                            <Table.HeaderCell>Salary(TL)</Table.HeaderCell>
-                            <Table.HeaderCell>Last Application</Table.HeaderCell>
-                            <Table.HeaderCell>Details</Table.HeaderCell>
-                            <Table.HeaderCell>Delete</Table.HeaderCell>
-                        </Table.Row>
-                    </Table.Header>
-                    <Table.Body>
-                        {favoriteAdverts?.map((favoriteAdvert) => (
-                            <Table.Row key={favoriteAdvert.favoriteId}>
-                                <Table.Cell>{favoriteAdvert.jobAdvertisement.employer.companyName}</Table.Cell>
-                                <Table.Cell>{favoriteAdvert.jobAdvertisement.position.positionName}</Table.Cell>
-                                <Table.Cell>{favoriteAdvert.jobAdvertisement.city.cityName}</Table.Cell>
-                                <Table.Cell>{favoriteAdvert.jobAdvertisement.minSalary} - {favoriteAdvert.jobAdvertisement.maxSalary}</Table.Cell>
-                                <Table.Cell>
-                                    {(
-                                        (new Date(favoriteAdvert.jobAdvertisement.lastApplication).getTime() -
-                                            new Date(Date.now()).getTime()) /
-                                        86400000
-                                    )
-                                        .toString()
-                                        .split(".", 1)}{" "}
-                                    day
-                                </Table.Cell>
-                                <Table.Cell>
-                                    <Button
-                                        as={Link} to={`/jobAdvertisements/${favoriteAdvert.jobAdvertisement.advertId}`}
-                                        circular content='Details' fluid negative size='small'
-                                    />
-                                </Table.Cell>
-                                <Table.Cell>
-                                    <Button
-                                        color="red" icon="delete"
-                                        circular inverted
-                                        onClick={() => handleRemoveFavorite(favoriteAdvert.favoriteId)}
-                                    />
-                                </Table.Cell>
-                            </Table.Row>
-                        ))}
-                    </Table.Body>
-                </Table>
-            </Card> */}

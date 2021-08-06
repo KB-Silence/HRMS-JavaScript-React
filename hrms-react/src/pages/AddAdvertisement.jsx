@@ -1,12 +1,15 @@
 import * as yup from 'yup';
 import React, { useEffect, useState } from 'react'
 import { Formik } from 'formik'
-import { Header, Dropdown, Form, TextArea, Button, Message, Label } from 'semantic-ui-react'
+import { Header, Dropdown, Form, TextArea, Button, Message, Label, Grid, Segment } from 'semantic-ui-react'
 import { toast } from 'react-toastify'
 import JobAdvertisementService from '../services/JobAdvertisementService'
 import LittleService from '../services/LittleService'
+import ActiveItem from '../utils/ActiveItem'
 
 export default function AddAdvertisement() {
+
+    ActiveItem()
 
     let jobAdvertisementService = new JobAdvertisementService()
 
@@ -48,15 +51,15 @@ export default function AddAdvertisement() {
     })))
 
     const initialValues = {
-        cityId:"",
-        jobDescription:"",
-        lastApplication:"",
-        maxSalary:"",
-        minSalary:"",
-        positionId:"",
-        quota:"",
-        timeId:"",
-        typeId:""
+        cityId: "",
+        jobDescription: "",
+        lastApplication: "",
+        maxSalary: "",
+        minSalary: "",
+        positionId: "",
+        quota: "",
+        timeId: "",
+        typeId: ""
     }
     const schema = yup.object({
         minSalary: yup.number().required("Min Salary field cannot be empty.")
@@ -95,133 +98,235 @@ export default function AddAdvertisement() {
                 {({ values, touched, errors, handleChange, handleSubmit, handleBlur, setFieldValue }) => (
                     <React.Fragment>
                         <Header textAlign="center" content="Add new Job Advertisement!" />
-                        <Form onSubmit={handleSubmit}>
-                            <Form.Input
-                                className="formInput" width="6"
-                                name="minSalary" placeholder="Min Salary"
-                                onChange={handleChange}
-                                value={values.minSalary} />
-                            {touched.minSalary && errors.minSalary && (
-                                <Message className="errorMessage" negative size="tiny">
-                                    <Message.Content content={errors.minSalary} />
-                                </Message>
-                            )}
+                        <Segment
+                            className="addAdvertSegment"
+                            textAlign="center"
+                            stacked padded clearing >
+                            <Form onSubmit={handleSubmit}>
+                                <Grid columns="equal" centered stackable padded >
+                                    <Grid.Row className="addAdvertRow" >
+                                        <Grid.Column
+                                            className="addAdvertColumn"
+                                            textAlign="center" tablet="6" computer="2">
+                                            <Label
+                                                className="addAdvertLabel"
+                                                content="Min Salary" />
+                                            <Form.Input
+                                                className="formInput"
+                                                name="minSalary" placeholder="3000"
+                                                onChange={handleChange}
+                                                value={values.minSalary} />
+                                            {touched.minSalary && errors.minSalary && (
+                                                <Message className="errorMessage" negative size="tiny">
+                                                    <Message.Content content={errors.minSalary} />
+                                                </Message>
+                                            )}
+                                        </Grid.Column>
 
-                            <Form.Input
-                                className="formInput" width="6"
-                                name="maxSalary" placeholder="Max Salary"
-                                onChange={handleChange}
-                                value={values.maxSalary} />
-                            {touched.maxSalary && errors.maxSalary && (
-                                <Message className="errorMessage" negative size="tiny">
-                                    <Message.Content content={errors.maxSalary} />
-                                </Message>
-                            )}
+                                        <Grid.Column
+                                            className="addAdvertColumn"
+                                            textAlign="center" mobile="16" tablet="6" computer="2">
+                                            <Label
+                                                className="addAdvertLabel"
+                                                content="Max Salary" />
+                                            <Form.Input
+                                                className="formInput"
+                                                name="maxSalary" placeholder="7000"
+                                                onChange={handleChange}
+                                                value={values.maxSalary} />
+                                            {touched.maxSalary && errors.maxSalary && (
+                                                <Message className="errorMessage" negative size="tiny">
+                                                    <Message.Content content={errors.maxSalary} />
+                                                </Message>
+                                            )}
+                                        </Grid.Column>
 
-                            <Form.Input
-                                className="formInput" width="6"
-                                name="quota" placeholder="Quota"
-                                onChange={handleChange}
-                                value={values.quota} />
-                            {touched.quota && errors.quota && (
-                                <Message className="errorMessage" negative size="tiny">
-                                    <Message.Content content={errors.quota} />
-                                </Message>
-                            )}
+                                        <Grid.Column
+                                            className="addAdvertColumn"
+                                            textAlign="center" mobile="16" tablet="6" computer="2">
+                                            <Label
+                                                className="addAdvertLabel"
+                                                content="Quota" />
+                                            <Form.Input
+                                                className="formInput"
+                                                name="quota" placeholder="7"
+                                                onChange={handleChange}
+                                                value={values.quota} />
+                                            {touched.quota && errors.quota && (
+                                                <Message className="errorMessage" negative size="tiny">
+                                                    <Message.Content content={errors.quota} />
+                                                </Message>
+                                            )}
+                                        </Grid.Column>
+                                    </Grid.Row>
 
-                            <Label circular pointing="below" color="green" size="large" content="Last Application" />
-                            <Form.Input
-                                type="date"
-                                className="formInput" width="6"
-                                name="lastApplication" placeholder="Last Application"
-                                onChange={handleChange}
-                                value={values.lastApplication} />
+                                    <Grid.Row className="addAdvertRow">
+                                        <Grid.Column
+                                            floated="right"
+                                            className="addAdvertColumn"
+                                            textAlign="center"
+                                            mobile="6" tablet="5" computer="3" widescreen="2" >
+                                            <Grid.Row>
+                                                <Label
+                                                    className="addAdvertLabel"
+                                                    content="Cities" />
+                                            </Grid.Row>
+                                            <Dropdown
+                                                className="addAdvertDropdown"
+                                                clearable item search selection
+                                                placeholder="İstanbul"
+                                                id="cityId"
+                                                name="cityId"
+                                                onChange={(e, data) =>
+                                                    setFieldValue("cityId", data.value)}
+                                                onBlur={handleBlur}
+                                                value={values.cityId}
+                                                options={cityOptions} />
+                                            {touched.cityId && errors.cityId && (
+                                                <Message className="errorMessage" negative size="tiny">
+                                                    <Message.Content content={errors.cityId} />
+                                                </Message>
+                                            )}
+                                        </Grid.Column>
+                                        <Grid.Column
+                                            floated="right"
+                                            className="addAdvertColumn"
+                                            textAlign="center"
+                                            mobile="6" tablet="5" computer="3" widescreen="2">
+                                            <Grid.Row>
+                                                <Label
+                                                    className="addAdvertLabel"
+                                                    content="Positions" />
+                                            </Grid.Row>
+                                            <Dropdown className="addAdvertDropdown"
+                                                clearable item search selection
+                                                placeholder="Backend Developer"
+                                                id="positionId"
+                                                name="positionId"
+                                                onChange={(e, data) =>
+                                                    setFieldValue("positionId", data.value)}
+                                                onBlur={handleBlur}
+                                                value={values.positionId}
+                                                options={positionOptions} />
+                                            {touched.positionId && errors.positionId && (
+                                                <Message className="errorMessage" negative size="tiny">
+                                                    <Message.Content content={errors.positionId} />
+                                                </Message>
+                                            )}
+                                        </Grid.Column>
+                                        <Grid.Column
+                                            floated="right"
+                                            className="addAdvertColumn"
+                                            textAlign="center"
+                                            mobile="6" tablet="5" computer="3" widescreen="2">
+                                            <Grid.Row>
+                                                <Label
+                                                    className="addAdvertLabel"
+                                                    content="Employment Types" />
+                                            </Grid.Row>
+                                            <Dropdown className="addAdvertDropdown"
+                                                clearable item search selection
+                                                placeholder="Remote"
+                                                id="typeId"
+                                                name="typeId"
+                                                onChange={(e, data) =>
+                                                    setFieldValue("typeId", data.value)}
+                                                onBlur={handleBlur}
+                                                value={values.typeId}
+                                                options={employmentTypeOptions} />
+                                            {touched.typeId && errors.typeId && (
+                                                <Message className="errorMessage" negative size="tiny">
+                                                    <Message.Content content={errors.typeId} />
+                                                </Message>
+                                            )}
+                                        </Grid.Column>
+                                        <Grid.Column
+                                            floated="right"
+                                            className="addAdvertColumn"
+                                            textAlign="center"
+                                            mobile="6" tablet="5" computer="3" widescreen="2">
+                                            <Grid.Row>
+                                                <Label
+                                                    className="addAdvertLabel"
+                                                    content="Employment Times" />
+                                            </Grid.Row>
+                                            <Dropdown className="addAdvertDropdown"
+                                                clearable item search selection
+                                                placeholder="Full Time"
+                                                id="timeId"
+                                                name="timeId"
+                                                onChange={(e, data) =>
+                                                    setFieldValue("timeId", data.value)}
+                                                onBlur={handleBlur}
+                                                value={values.timeId}
+                                                options={employmentTimeOptions} />
+                                            {touched.timeId && errors.timeId && (
+                                                <Message className="errorMessage" negative size="tiny">
+                                                    <Message.Content content={errors.timeId} />
+                                                </Message>
+                                            )}
+                                        </Grid.Column>
+                                    </Grid.Row>
 
-                            {touched.lastApplication && errors.lastApplication && (
-                                <Message className="errorMessage" negative size="tiny">
-                                    <Message.Content content={errors.lastApplication} />
-                                </Message>
-                            )}
-                            <Dropdown className="addAdvertDropdown"
-                                clearable item search selection
-                                placeholder="Cities"
-                                id="cityId"
-                                name="cityId"
-                                onChange={(e, data) =>
-                                    setFieldValue("cityId", data.value)}
-                                onBlur={handleBlur}
-                                value={values.cityId}
-                                options={cityOptions} />
-                            {touched.cityId && errors.cityId && (
-                                <Message className="errorMessage" negative size="tiny">
-                                    <Message.Content content={errors.cityId} />
-                                </Message>
-                            )}
-                            <Dropdown className="addAdvertDropdown"
-                                clearable item search selection
-                                placeholder="Positions"
-                                id="positionId"
-                                name="positionId"
-                                onChange={(e, data) =>
-                                    setFieldValue("positionId", data.value)}
-                                onBlur={handleBlur}
-                                value={values.positionId}
-                                options={positionOptions} />
-                            {touched.positionId && errors.positionId && (
-                                <Message className="errorMessage" negative size="tiny">
-                                    <Message.Content content={errors.positionId} />
-                                </Message>
-                            )}
-                            <Dropdown className="addAdvertDropdown"
-                                clearable item search selection
-                                placeholder="Employment Type"
-                                id="typeId"
-                                name="typeId"
-                                onChange={(e, data) =>
-                                    setFieldValue("typeId", data.value)}
-                                onBlur={handleBlur}
-                                value={values.typeId}
-                                options={employmentTypeOptions} />
-                            {touched.typeId && errors.typeId && (
-                                <Message className="errorMessage" negative size="tiny">
-                                    <Message.Content content={errors.typeId} />
-                                </Message>
-                            )}
+                                    <Grid.Row className="addAdvertRow">
+                                        <Grid.Column
+                                            className="addAdvertColumn"
+                                            textAlign="center" mobile="16" tablet="16" computer="10">
+                                            <Label
+                                                className="addAdvertLabel"
+                                                content="Job Description" />
+                                            <Form.Field className="formInput" width="12" >
+                                                <TextArea rows="5"
+                                                    placeholder="People who love to code are always one step ahead."
+                                                    name="jobDescription"
+                                                    onChange={handleChange}
+                                                    onBlur={handleBlur} />
+                                            </Form.Field>
+                                            {touched.jobDescription && errors.jobDescription && (
+                                                <Message className="errorMessage" negative size="tiny">
+                                                    <Message.Content content={errors.jobDescription} />
+                                                </Message>
+                                            )}
+                                        </Grid.Column>
+                                    </Grid.Row>
 
-                            <Dropdown className="addAdvertDropdown"
-                                clearable item search selection
-                                placeholder="Employment Time"
-                                id="timeId"
-                                name="timeId"
-                                onChange={(e, data) =>
-                                    setFieldValue("timeId", data.value)}
-                                onBlur={handleBlur}
-                                value={values.timeId}
-                                options={employmentTimeOptions} />
-                            {touched.timeId && errors.timeId && (
-                                <Message className="errorMessage" negative size="tiny">
-                                    <Message.Content content={errors.timeId} />
-                                </Message>
-                            )}
-                            <Form.Field className="formInput" width="12" >
-                                <TextArea rows="5"
-                                    placeholder="Job Description"
-                                    name="jobDescription"
-                                    onChange={handleChange}
-                                    onBlur={handleBlur} />
-                            </Form.Field>
-                            {touched.jobDescription && errors.jobDescription && (
-                                <Message className="errorMessage" negative size="tiny">
-                                    <Message.Content content={errors.jobDescription} />
-                                </Message>
-                            )}
-                            <Button
-                                compact circular
-                                className="addAdvertButton"
-                                type="submit"
-                                icon="add" labelPosition="right"
-                                content="Add" />
-                        </Form>
+                                    <Grid.Row className="addAdvertRow">
+                                        <Grid.Column
+                                            className="addAdvertColumn"
+                                            textAlign="center" mobile="16" tablet="10" computer="6">
+                                            <Label
+                                                className="addAdvertLabel"
+                                                content="Last Application" />
+                                            <Form.Input
+                                                type="date"
+                                                className="formInput" width="8"
+                                                name="lastApplication" placeholder="Last Application"
+                                                onChange={handleChange}
+                                                value={values.lastApplication} />
+
+                                            {touched.lastApplication && errors.lastApplication && (
+                                                <Message className="errorMessage" negative size="tiny">
+                                                    <Message.Content content={errors.lastApplication} />
+                                                </Message>
+                                            )}
+                                        </Grid.Column>
+                                    </Grid.Row>
+                                    <Grid.Row className="addAdvertRow">
+                                        <Grid.Column
+                                            className="addAdvertColumn"
+                                            mobile="16" tablet="8" computer="5">
+                                            <Button
+                                                fluid
+                                                compact circular
+                                                className="addAdvertButton"
+                                                type="submit"
+                                                icon="add" labelPosition="right"
+                                                content="Add" />
+                                        </Grid.Column>
+                                    </Grid.Row>
+                                </Grid>
+                            </Form>
+                        </Segment>
                     </React.Fragment>
                 )}
             </Formik>

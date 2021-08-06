@@ -32,4 +32,8 @@ export default class JobAdvertisementService {
     getByAdvertStatusTrueAndEmployerId(employerId) {
         return axios.get(`http://localhost:8080/api/jobAdvertisements/getByAdvertStatusTrueAndEmployerId?employerId=${employerId}`)
     }
+
+    getByAdvertId(advertId) {
+        return axios.get(`http://localhost:8080/api/jobAdvertisements/getByAdvertId?advertId=${advertId}`)
+    }
 }
