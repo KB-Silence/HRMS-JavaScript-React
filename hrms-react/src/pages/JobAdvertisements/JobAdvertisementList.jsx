@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
 import { Table, Button, Header, Container, Pagination, Dropdown } from 'semantic-ui-react'
+import { useSelector } from 'react-redux'
 import { toast } from 'react-toastify'
 import { Link } from 'react-router-dom'
-import JobAdvertisementService from '../services/JobAdvertisementService'
-import JobAdvertFavoriteService from '../services/JobAdvertFavoriteService'
-import AdvertisementFilterOption from '../layouts/advertisementFilter/AdvertisementFilterOption'
-import ActiveItem from '../utils/ActiveItem'
+import HandleActiveMenuItem from '../../utils/HandleActiveMenuItem'
+import JobAdvertisementService from '../../services/JobAdvertisementService'
+import JobAdvertFavoriteService from '../../services/JobAdvertFavoriteService'
+import AdvertisementFilterOption from '../../layouts/advertisementFilter/AdvertisementFilterOption'
 
 export default function JobAdvertisementList() {
 
-    ActiveItem()
+    HandleActiveMenuItem()
 
     const [jobAdvertisements, setjobAdvertisements] = useState([])
     let [favorites, setFavorites] = useState([])

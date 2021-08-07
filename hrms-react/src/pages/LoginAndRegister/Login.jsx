@@ -7,12 +7,12 @@ import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { userLogin } from '../../store/Actions/authActions';
 import { toast } from "react-toastify";
-import ActiveItem from '../../utils/ActiveItem'
+import HandleActiveMenuItem from '../../utils/HandleActiveMenuItem'
 import { setActive } from '../../store/Actions/naviActions';
 
 export default function Login() {
 
-    ActiveItem()
+    HandleActiveMenuItem()
 
     let authService = new AuthService()
     const history = useHistory()

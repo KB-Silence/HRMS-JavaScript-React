@@ -3,11 +3,11 @@ import { Header, Form, Segment, Button, Checkbox, Message, Label } from 'semanti
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import { Link } from 'react-router-dom';
-import ActiveItem from '../../utils/ActiveItem'
+import HandleActiveMenuItem from '../../utils/HandleActiveMenuItem'
 
 export default function UnemployedRegister() { 
     
-    ActiveItem()
+    HandleActiveMenuItem()
 
     const initialValues = {
         firstName: "",

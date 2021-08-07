@@ -23,23 +23,21 @@ export default function UnemployedSignIn() {
     useEffect(() => {
         photoService.getByUnemployedId(authInitial[0].user.id).then((result) => setPhotoUrl(result.data.data))
     }, [])
-    
+
     let message = `Welcome ${authInitial[0].user.name}`
     return (
         <Menu secondary stackable size="large" position='left'>
-            <Menu.Item className="menuAvatarItem">
-                <Image 
-                avatar
-                className="unemployedAvatar"
-                src={photoUrl.photoUrl}/>
-            </Menu.Item>
-            <Menu.Item>
+            <Menu.Item className="unemployedMenu">
+                <Image
+                    avatar
+                    className="unemployedAvatar"
+                    src={photoUrl.photoUrl} />
                 <Dropdown className="signDropdown" pointing text={message} icon="hand point down" >
                     <Dropdown.Menu>
                         <Dropdown.Item className="signDropdownContent" content="Favorite Adverts"
                             as={Link} to="/jobAdvertisementFavorites" />
                         <Dropdown.Item className="signDropdownContent" content='See All Adverts' as={Link} to="/allJobAdvertisements" />
-                        <Dropdown.Item className="signDropdownContent" content='Profile' />
+                        <Dropdown.Item className="signDropdownContent" content='Profile' as={Link} to={`/unemployed/${authInitial[0].user.id}`} />
                         <Dropdown.Item className="signDropdownContent" content='Sign Out' onClick={() => handleLogout(authInitial[0].user)} />
                     </Dropdown.Menu>
                 </Dropdown>

@@ -1,17 +1,16 @@
 import React from 'react'
-import { useEffect } from 'react'
-import { useState } from 'react'
-import { useSelector } from 'react-redux'
-import { Link, useParams } from 'react-router-dom'
-import { toast } from 'react-toastify'
 import { Button, Grid, Header, Icon, Table } from 'semantic-ui-react'
-import JobAdvertFavoriteService from '../services/JobAdvertFavoriteService'
-import JobAdvertisementService from '../services/JobAdvertisementService'
-import ActiveItem from '../utils/ActiveItem'
+import { Link, useParams } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import { useSelector } from 'react-redux'
+import { toast } from 'react-toastify'
+import JobAdvertFavoriteService from '../../services/JobAdvertFavoriteService'
+import JobAdvertisementService from '../../services/JobAdvertisementService'
+import HandleActiveMenuItem from '../../utils/HandleActiveMenuItem'
 
 export default function JobAdvertisementDetail() {
 
-    ActiveItem()
+    HandleActiveMenuItem()
 
     let { advertId } = useParams()
     const { authInitial } = useSelector(state => state.auth)

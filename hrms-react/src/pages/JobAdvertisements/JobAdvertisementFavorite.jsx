@@ -5,12 +5,12 @@ import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { Button, Card, Container, Divider, Grid, Header, Segment } from 'semantic-ui-react'
-import JobAdvertFavoriteService from '../services/JobAdvertFavoriteService'
-import ActiveItem from '../utils/ActiveItem'
+import JobAdvertFavoriteService from '../../services/JobAdvertFavoriteService'
+import HandleActiveMenuItem from '../../utils/HandleActiveMenuItem'
 
 export default function JobAdvertisementFavorite() {
 
-    ActiveItem()
+    HandleActiveMenuItem()
 
     const { authInitial } = useSelector(state => state.auth)
     const [favoriteAdverts, setFavoriteAdverts] = useState([])

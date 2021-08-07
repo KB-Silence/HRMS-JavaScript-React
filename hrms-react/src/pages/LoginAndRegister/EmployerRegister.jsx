@@ -2,11 +2,11 @@ import React from 'react'
 import { Header, Form, Segment, Button, Checkbox, Message } from 'semantic-ui-react'
 import { Formik } from 'formik';
 import * as yup from 'yup';
-import ActiveItem from '../../utils/ActiveItem'
+import HandleActiveMenuItem from '../../utils/HandleActiveMenuItem'
 
 export default function EmployerRegister() {
 
-    ActiveItem()
+    HandleActiveMenuItem()
 
     const initialValues = {
         companyName: "",

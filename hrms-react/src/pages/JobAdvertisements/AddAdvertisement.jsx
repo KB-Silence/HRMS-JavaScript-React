@@ -3,13 +3,13 @@ import React, { useEffect, useState } from 'react'
 import { Formik } from 'formik'
 import { Header, Dropdown, Form, TextArea, Button, Message, Label, Grid, Segment } from 'semantic-ui-react'
 import { toast } from 'react-toastify'
-import JobAdvertisementService from '../services/JobAdvertisementService'
-import LittleService from '../services/LittleService'
-import ActiveItem from '../utils/ActiveItem'
+import JobAdvertisementService from '../../services/JobAdvertisementService'
+import LittleService from '../../services/LittleService'
+import HandleActiveMenuItem from '../../utils/HandleActiveMenuItem'
 
 export default function AddAdvertisement() {
 
-    ActiveItem()
+    HandleActiveMenuItem()
 
     let jobAdvertisementService = new JobAdvertisementService()
 

@@ -10,8 +10,8 @@ export default class UnemployedService {
         return axios.get("http://localhost:8080/api/unemployeds/getMailIsVerifyTrue")
     }
 
-    getByUnemployedId(unemployedId) {
-        return axios.get(`http://localhost:8080/api/unemployeds/getByUnemployedId?unemployedId=${unemployedId}`)
+    getByUserId(userId) {
+        return axios.get(`http://localhost:8080/api/unemployeds/getByUserId?userId=${userId}`)
     }
 
     createCv(unemployedId) {
