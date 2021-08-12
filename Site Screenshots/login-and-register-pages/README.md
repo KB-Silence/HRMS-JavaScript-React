@@ -1,8 +1,8 @@
-## Register for Employer  
-![Screenshot_116](https://user-images.githubusercontent.com/74976052/121967533-39d61380-cd79-11eb-90f6-d7eb24530849.png)  
+## İş Arayan Kayıt Sayfası  
+![kayıtol](https://user-images.githubusercontent.com/74976052/129270160-9ef357ec-91c7-4197-a65b-9312af533a39.png)  
 
-## Register for Unemployed  
-![Screenshot_117](https://user-images.githubusercontent.com/74976052/121967530-393d7d00-cd79-11eb-8d54-b11e6d607090.png)  
+## İş Veren Kayıt Sayfası  
+![employerkayıtol](https://user-images.githubusercontent.com/74976052/129270126-e5f27a3a-e2f9-433e-87eb-4639c151d7dd.png)  
 
-## Login  
-![Screenshot_118](https://user-images.githubusercontent.com/74976052/121967528-380c5000-cd79-11eb-8b72-b0bc5cd9d531.png)  
+## Giriş Sayfası  
+![login](https://user-images.githubusercontent.com/74976052/129270164-eb038b40-9e8c-4d57-8a9f-c2146a45929b.png)  
