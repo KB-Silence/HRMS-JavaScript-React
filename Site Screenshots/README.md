@@ -1,8 +1,12 @@
-# Main Sections  
-## **[Click here.](https://github.com/KB-Silence/HRMS-JavaScript-React/tree/main/Site%20Screenshots/main-sections)**  
+## Anasayfanın ve Ana Kısımların görüntüleri için: **[Tıkla..](https://github.com/KB-Silence/HRMS-JavaScript-React/tree/main/Site%20Screenshots/main-sections)**  
 
-# Login and Register pages
-## **[Click here.](https://github.com/KB-Silence/HRMS-JavaScript-React/tree/main/Site%20Screenshots/login-and-register-pages)**
+## Kayıt Ol ve Giriş Yap gayfalarının görüntüleri için: **[Tıkla..](https://github.com/KB-Silence/HRMS-JavaScript-React/tree/main/Site%20Screenshots/login-and-register-pages)**
 
-# Job Advertisements
-## **[Click Here](https://github.com/KB-Silence/HRMS-JavaScript-React/tree/main/Site%20Screenshots/jobAdvertisements)**
+## İş İlanları ile ilgili sayfaların görüntüleri için: **[Tıkla..](https://github.com/KB-Silence/HRMS-JavaScript-React/tree/main/Site%20Screenshots/jobAdvertisements)**
+
+
+## Sistem Personelleri ile ilgili sayfaların görüntüleri için: **[Tıkla..](https://github.com/KB-Silence/HRMS-JavaScript-React/tree/main/Site%20Screenshots/users/employee)**
+
+## İşverenler ile ilgili sayfaların görüntüleri için: **[Tıkla..](https://github.com/KB-Silence/HRMS-JavaScript-React/tree/main/Site%20Screenshots/users/employer)**
+
+## İş Arayan kullanıcılar ile ilgili sayfaların görüntüleri için: **[Tıkla..](https://github.com/KB-Silence/HRMS-JavaScript-React/tree/main/Site%20Screenshots/users/unemployed)**
