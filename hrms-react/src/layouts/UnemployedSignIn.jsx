@@ -24,7 +24,7 @@ export default function UnemployedSignIn() {
         photoService.getByUnemployedId(authInitial[0].user.id).then((result) => setPhotoUrl(result.data.data))
     }, [])
 
-    let message = `Welcome ${authInitial[0].user.name}`
+    let message = `Hoşgeldin ${authInitial[0].user.name}`
     return (
         <Menu secondary stackable size="large" position='left'>
             <Menu.Item className="unemployedMenu">
@@ -34,11 +34,11 @@ export default function UnemployedSignIn() {
                     src={photoUrl.photoUrl} />
                 <Dropdown className="signDropdown" pointing text={message} icon="hand point down" >
                     <Dropdown.Menu>
-                        <Dropdown.Item className="signDropdownContent" content="Favorite Adverts"
+                        <Dropdown.Item className="signDropdownContent" content="Favori İlanlar"
                             as={Link} to="/jobAdvertisementFavorites" />
-                        <Dropdown.Item className="signDropdownContent" content='See All Adverts' as={Link} to="/allJobAdvertisements" />
-                        <Dropdown.Item className="signDropdownContent" content='Profile' as={Link} to={`/unemployed/${authInitial[0].user.id}`} />
-                        <Dropdown.Item className="signDropdownContent" content='Sign Out' onClick={() => handleLogout(authInitial[0].user)} />
+                        <Dropdown.Item className="signDropdownContent" content='Bütün İlanları Gör' as={Link} to="/allJobAdvertisements" />
+                        <Dropdown.Item className="signDropdownContent" content='Profil' as={Link} to={`/unemployed/${authInitial[0].user.id}`} />
+                        <Dropdown.Item className="signDropdownContent" content='Çıkış Yap' onClick={() => handleLogout(authInitial[0].user)} />
                     </Dropdown.Menu>
                 </Dropdown>
             </Menu.Item>

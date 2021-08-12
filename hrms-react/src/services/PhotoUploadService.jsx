@@ -5,12 +5,8 @@ export default class PhotoUploadService {
         return axios.post(`http://localhost:8080/api/photos/uploadPhoto?unemployedId=${unemployedId}`, multipartFile)
     }
 
-    updatePhoto(unemployedId, multipartFile) {
-        return axios.put(`http://localhost:8080/api/photos/updatePhoto?unemployedId=${unemployedId}`,multipartFile)
-    }
-
-    deletePhoto(photoId) {
-        return axios.delete(`http://localhost:8080/api/photos/deletePhoto?photoId=${photoId}`)
+    deletePhoto(unemployedId) {
+        return axios.delete(`http://localhost:8080/api/photos/deletePhoto?unemployedId=${unemployedId}`)
     }
 
     getByUnemployedId(unemployedId) {

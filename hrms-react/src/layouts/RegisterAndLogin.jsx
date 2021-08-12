@@ -7,11 +7,11 @@ export default function RegisterAndLogin() {
         <ButtonGroup>
             <Button
                 className="registerButton"
-                content="Register"
+                content="Kayıt Ol"
                 as={Link} to="/unemployedRegister" />
             <Button
                 className="loginButton"
-                content="Login"
+                content="Giriş Yap"
                 as={Link} to="/login" />
         </ButtonGroup>
     )

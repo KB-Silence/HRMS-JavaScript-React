@@ -2,12 +2,15 @@ import React from 'react'
 import { Header, Form, Segment, Button, Checkbox, Message, Label } from 'semantic-ui-react'
 import { Formik } from 'formik';
 import * as yup from 'yup';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import HandleActiveMenuItem from '../../utils/HandleActiveMenuItem'
+import AuthService from '../../services/AuthService';
+import { toast } from 'react-toastify';
 
-export default function UnemployedRegister() { 
-    
+export default function UnemployedRegister() {
+
     HandleActiveMenuItem()
+    const history = useHistory()
 
     const initialValues = {
         firstName: "",
@@ -35,11 +38,15 @@ export default function UnemployedRegister() {
         agree: yup.bool().oneOf([true], "You must accept the terms of use.")
     })
 
-    const onSubmit = (values, { resetForm }) => {
-        console.log(values);
-        setTimeout(() => {
-            resetForm()
-        }, 2000)
+    let authService = new AuthService()
+
+    const onSubmit = (values) => {
+        authService.registerUnemployed(values.confirmPassword, values).then((result) => {
+            toast.success(result.data.message)
+            history.push("/")
+        }).catch((result) => {
+            toast(result.response.data.message)
+        })
     }
     return (
 
@@ -50,13 +57,13 @@ export default function UnemployedRegister() {
             >
                 {({ values, errors, handleChange, handleSubmit, touched }) => (
                     <React.Fragment>
-                        <Header className="registerHeader" textAlign="center" content="Create your account to find your dream job." />
+                        <Header className="registerHeader" textAlign="center" content="Hayallerindeki işi bulmak için hemen hesabını oluştur." />
                         <Form onSubmit={handleSubmit}>
                             <Segment stacked piled style={{ borderRadius: "10px/10px" }}>
 
                                 {/* First Name and Last Name Validation */}
                                 <Form.Field>
-                                    <Form.Input fluid icon="add user" iconPosition="left" placeholder="First Name"
+                                    <Form.Input fluid icon="add user" iconPosition="left" placeholder="Ad"
                                         name="firstName"
                                         value={values.firstName}
                                         onChange={handleChange} />
@@ -68,7 +75,7 @@ export default function UnemployedRegister() {
                                 )}
 
                                 <Form.Field>
-                                    <Form.Input fluid icon="add user" iconPosition="left" placeholder="Last Name"
+                                    <Form.Input fluid icon="add user" iconPosition="left" placeholder="Soyad"
                                         name="lastName"
                                         value={values.lastName}
                                         onChange={handleChange} />
@@ -81,7 +88,7 @@ export default function UnemployedRegister() {
 
                                 {/* Naitonality Id Validation */}
                                 <Form.Field>
-                                    <Form.Input fluid icon="id card" iconPosition="left" placeholder="Nationality Id"
+                                    <Form.Input fluid icon="id card" iconPosition="left" placeholder="T.C Kimlik Numarası"
                                         name="nationalityId"
                                         value={values.nationalityId}
                                         onChange={handleChange} />
@@ -94,7 +101,7 @@ export default function UnemployedRegister() {
 
                                 {/* Birth Date Validation */}
                                 <Form.Field>
-                                    <Form.Input fluid icon="birthday" iconPosition="left" placeholder="YYYY.mm.DD" type="date"
+                                    <Form.Input fluid icon="birthday" iconPosition="left" type="date"
                                         name="birthDate"
                                         value={values.birthDate}
                                         onChange={handleChange} />
@@ -107,7 +114,7 @@ export default function UnemployedRegister() {
 
                                 {/* Phone Number Validation */}
                                 <Form.Field>
-                                    <Form.Input fluid icon="phone" iconPosition="left" placeholder="Phone Number"
+                                    <Form.Input fluid icon="phone" iconPosition="left" placeholder="Telefon Numarası"
                                         name="phoneNumber"
                                         value={values.phoneNumber}
                                         onChange={handleChange} />
@@ -133,7 +140,7 @@ export default function UnemployedRegister() {
 
                                 {/* Password and Confirm Password Validation */}
                                 <Form.Field>
-                                    <Form.Input fluid icon="unlock alternate" iconPosition="left" placeholder="Password"
+                                    <Form.Input fluid icon="unlock alternate" iconPosition="left" placeholder="Şifre"
                                         type="password"
                                         name="password"
                                         value={values.password}
@@ -146,7 +153,7 @@ export default function UnemployedRegister() {
                                 )}
 
                                 <Form.Field>
-                                    <Form.Input fluid icon="unlock alternate" iconPosition="left" placeholder="Confirm Password"
+                                    <Form.Input fluid icon="unlock alternate" iconPosition="left" placeholder="Şifreyi Onayla"
                                         type="password"
                                         name="confirmPassword"
                                         value={values.confirmPassword}
@@ -160,7 +167,7 @@ export default function UnemployedRegister() {
 
                                 {/* Terms of Use Validation */}
                                 <Form.Field>
-                                    <Checkbox label=" ' I agree to the Terms and Conditions ' "
+                                    <Checkbox label=" ' Hükümleri ve Koşulları Kabul Ediyorum ' "
                                         id="agree"
                                         onChange={handleChange}
                                         style={{ fontWeight: "bold" }}
@@ -172,12 +179,12 @@ export default function UnemployedRegister() {
                                     </Message>
                                 )}
 
-                                <Button size="large" compact fluid icon="coffee" labelPosition="right" content="Let's Start"
+                                <Button size="large" compact fluid icon="coffee" labelPosition="right" content="Kayıt Ol!"
                                     type="submit"
                                     disabled={!values.agree}
-                                    style={{ background: "linear-gradient(to right, #11998e, #38ef7d)", color: "white", borderRadius: "10px/10px" }} />
+                                    style={{ background: "linear-gradient(to right, #11998e, #38ef7d)", color: "white", borderRadius: "10px/10px", letterSpacing: "1px" }} />
                                 <Label className="registerLabel" as={Link} to="/employerRegister"
-                                    content="Click here to register as employer." />
+                                    content="İş veren olarak kayıt olmak için buraya tıklayın." />
                             </Segment>
                         </Form>
                     </React.Fragment>

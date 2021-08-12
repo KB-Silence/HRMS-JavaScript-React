@@ -45,12 +45,12 @@ export default function JobAdvertisementDetail() {
         <div className="pages advertDetail" style={{ marginLeft: "1em", marginRight: "1em"}}>
             <Grid stackable padded>
                 <Grid.Row>
-                    <Grid.Column mobile="6" tablet="6" computer="8">
+                    <Grid.Column mobile="6" tablet="6" computer="6">
                         <Table celled stackable>
                             <Table.Header>
                                 <Table.Row style={{ letterSpacing: "2px" }}>
-                                    <Table.HeaderCell>Employer</Table.HeaderCell>
-                                    <Table.HeaderCell>Information</Table.HeaderCell>
+                                    <Table.HeaderCell>İşveren</Table.HeaderCell>
+                                    <Table.HeaderCell>Bilgileri</Table.HeaderCell>
                                 </Table.Row>
                             </Table.Header>
 
@@ -60,7 +60,7 @@ export default function JobAdvertisementDetail() {
                                         <Header as="h5">
                                             <Header.Content>
                                                 <Icon name="building" />
-                                                Company
+                                                Şirket
                                             </Header.Content>
                                         </Header>
                                     </Table.Cell>
@@ -84,7 +84,7 @@ export default function JobAdvertisementDetail() {
                                         <Header as="h5">
                                             <Header.Content>
                                                 <Icon name="phone" />
-                                                Phone
+                                                Telefon
                                             </Header.Content>
                                         </Header>
                                     </Table.Cell>
@@ -108,12 +108,12 @@ export default function JobAdvertisementDetail() {
                                         <Header as="h5">
                                             <Header.Content>
                                                 <Icon name="list ul" />
-                                                Details
+                                                Detaylar
                                             </Header.Content>
                                         </Header>
                                     </Table.Cell>
                                     <Table.Cell>
-                                        <Button color="google plus" content="Details"
+                                        <Button color="google plus" content="Git"
                                             as={Link}
                                             to={`/employers/${jobAdvertisement.employer?.userId}`}>
                                         </Button>
@@ -127,69 +127,69 @@ export default function JobAdvertisementDetail() {
                                 style={{ letterSpacing: "2px", fontWeight: "lighter" }}
                                 disabled={favoriteAdverts.includes(jobAdvertisement.advertId) ? true : false}
                                 color={favoriteAdverts.includes(jobAdvertisement.advertId) ? "grey" : "twitter"} onClick={() => handleAddFavorites(jobAdvertisement.advertId)}>
-                                {favoriteAdverts.includes(jobAdvertisement.advertId) ? "Advert has already been added." : "Add to Favorite"}
+                                {favoriteAdverts.includes(jobAdvertisement.advertId) ? "İlan zaten favorilerinde." : "Favorilere Ekle."}
                             </Button>
                         }
                     </Grid.Column>
-                    <Grid.Column mobile="6" tablet="8" computer="8">
-                        <Table stackable striped size="small" structured >
+                    <Grid.Column mobile="6" tablet="8" computer="10">
+                        <Table stackable striped structured >
                             <Table.Header>
                                 <Table.Row>
                                     <Table.HeaderCell />
                                     <Table.HeaderCell
                                         style={{ letterSpacing: "2px" }}
-                                        content="Details" />
+                                        content="Detaylar" />
                                 </Table.Row>
                             </Table.Header>
 
                             <Table.Body>
                                 <Table.Row>
-                                    <Table.Cell style={{ fontWeight: "bolder" }}>Position</Table.Cell>
+                                    <Table.Cell singleLine style={{ fontWeight: "bolder" }}>Pozisoyn</Table.Cell>
                                     <Table.Cell>{jobAdvertisement.position?.positionName}</Table.Cell>
                                 </Table.Row>
 
                                 <Table.Row>
-                                    <Table.Cell style={{ fontWeight: "bolder" }}>City</Table.Cell>
+                                    <Table.Cell singleLine style={{ fontWeight: "bolder" }}>Şehir</Table.Cell>
                                     <Table.Cell>{jobAdvertisement.city?.cityName}</Table.Cell>
                                 </Table.Row>
 
                                 <Table.Row>
-                                    <Table.Cell style={{ fontWeight: "bolder" }}>Employment Type</Table.Cell>
+                                    <Table.Cell singleLine style={{ fontWeight: "bolder" }}>Çalışma Şekli</Table.Cell>
                                     <Table.Cell>{jobAdvertisement.employmentType?.typeName}</Table.Cell>
                                 </Table.Row>
 
                                 <Table.Row>
-                                    <Table.Cell style={{ fontWeight: "bolder" }}>Employment Time</Table.Cell>
+                                    <Table.Cell singleLine style={{ fontWeight: "bolder" }}>Çalışma Zamanı</Table.Cell>
                                     <Table.Cell>{jobAdvertisement.employmentTime?.timeName}</Table.Cell>
                                 </Table.Row>
 
                                 <Table.Row>
-                                    <Table.Cell style={{ fontWeight: "bolder" }}>Min Salary</Table.Cell>
+                                    <Table.Cell singleLine style={{ fontWeight: "bolder" }}>Min Maaş</Table.Cell>
                                     <Table.Cell>{jobAdvertisement.minSalary}</Table.Cell>
                                 </Table.Row>
 
                                 <Table.Row>
-                                    <Table.Cell style={{ fontWeight: "bolder" }}>Max Salary</Table.Cell>
+                                    <Table.Cell singleLine style={{ fontWeight: "bolder" }}>Max Maaş</Table.Cell>
                                     <Table.Cell>{jobAdvertisement.maxSalary}</Table.Cell>
                                 </Table.Row>
 
                                 <Table.Row>
-                                    <Table.Cell style={{ fontWeight: "bolder" }}>Quota</Table.Cell>
+                                    <Table.Cell singleLine style={{ fontWeight: "bolder" }}>Kontenjan</Table.Cell>
                                     <Table.Cell>{jobAdvertisement.quota}</Table.Cell>
                                 </Table.Row>
 
                                 <Table.Row>
-                                    <Table.Cell style={{ fontWeight: "bolder" }}>Created Date</Table.Cell>
+                                    <Table.Cell singleLine style={{ fontWeight: "bolder" }}>Eklenme Tarihi</Table.Cell>
                                     <Table.Cell>{jobAdvertisement.createdDate}</Table.Cell>
                                 </Table.Row>
 
                                 <Table.Row>
-                                    <Table.Cell style={{ fontWeight: "bolder" }}>Last Application</Table.Cell>
+                                    <Table.Cell singleLine style={{ fontWeight: "bolder" }}>Son Kabul</Table.Cell>
                                     <Table.Cell>{jobAdvertisement.lastApplication}</Table.Cell>
                                 </Table.Row>
 
                                 <Table.Row>
-                                    <Table.Cell style={{ fontWeight: "bolder" }}>Description</Table.Cell>
+                                    <Table.Cell style={{ fontWeight: "bolder" }}>Açıklama</Table.Cell>
                                     <Table.Cell>{jobAdvertisement.jobDescription}</Table.Cell>
                                 </Table.Row>
                             </Table.Body>

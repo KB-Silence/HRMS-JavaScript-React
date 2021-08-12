@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import EmployerSignIn from './EmployerSignIn'
 import UnemployedSignIn from './UnemployedSignIn'
 import { setActive } from '../store/Actions/naviActions'
+import EmployeeSignIn from './EmployeeSignIn'
 
 export default function Navi() {
 
@@ -15,7 +16,6 @@ export default function Navi() {
     function handleItemActive(e, { name }) {
         dispatch(setActive(name))
     }
-
     return (
         <Container>
             <Menu className='navbar' inverted secondary pointing fixed='top' size='large'>
@@ -24,6 +24,8 @@ export default function Navi() {
                     onClick={handleItemActive}
                     className='naviLogo' name="home" as={Link} to="/" active content='HRMS.com' />
                 <Menu.Item style={{ margin: "0px", padding: "0px", paddingLeft: "15px" }}>
+                    {authInitial[0].login && authInitial[0].user.userType === 3 &&
+                        <EmployeeSignIn />}
                     {authInitial[0].login && authInitial[0].user.userType === 2 &&
                         <EmployerSignIn />}
                     {authInitial[0].login && authInitial[0].user.userType === 1 &&
@@ -35,21 +37,20 @@ export default function Navi() {
                     <Menu.Item name="home"
                         onClick={handleItemActive}
                         active={(naviInitials.itemName === "home") ? true : false}
-                        as={Link} to="/" content='Home' />
+                        as={Link} to="/" content='Anasayfa' />
                     <Menu.Item name="services"
                         onClick={handleItemActive}
                         active={(naviInitials.itemName === "services") ? true : false}
-                        as={Link} to="/services" content='Services' />
+                        as={Link} to="/services" content='Servisler' />
                     <Menu.Item name="team"
                         onClick={handleItemActive}
                         active={(naviInitials.itemName === "team") ? true : false}
-                        as={Link} to="/team" content='Team' />
+                        as={Link} to="/team" content='Takım' />
                     <Menu.Item name="contact"
                         onClick={handleItemActive}
                         active={(naviInitials.itemName === "contact") ? true : false}
-                        as={Link} to="/contact" content='Contact' />
+                        as={Link} to="/contact" content='İletişim' />
                 </Menu.Menu>
-
             </Menu>
         </Container>
     )

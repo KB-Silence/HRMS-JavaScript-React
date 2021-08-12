@@ -7,9 +7,9 @@ export default function ServiceSection() {
             <Container className="serviceContainer">
                 <Grid stackable textAlign='center'>
                     <Grid.Row className="serviceMainGridRow">
-                        <Grid.Column mobile='16' tablet='12' computer='10' largeScreen="13" >
-                            <Header className="serviceHeader" dividing as='h2'>What is HRMS?</Header>
-                            <Header.Content className='serviceMainContent'>Human Resource Management is the process of recruiting, selecting, inducting employees, providing orientation, imparting training and development, appraising the performance of employees, deciding compensation and providing benefits, motivating employees, maintaining proper relations with employees and their trade unions, ensuring employees safety, welfare and healthy measures in compliance with labour laws of the land and finally following the Orders / Judgements of the concern High Court and Supreme Court, if any.
+                        <Grid.Column mobile='16' tablet='12' computer='11' largeScreen="13" >
+                            <Header className="serviceHeader" dividing as='h2'>HRMS Nedir?</Header>
+                            <Header.Content className='serviceMainContent'>“HRMS“ İnsan Kaynakları Yönetim Sistemi anlamına gelir. Kuruluşların şirket içi İK faaliyetlerini yönetmek için kullandıkları bir yazılım ürün setini ifade eder. İK Yönetim Sistemi yazılımı, İK uzmanlarının çalışan verilerinin yönetiminden bordro, işe alım, yan haklar, eğitim, yetenek yönetimi, çalışan etkileşimi ve çalışan katılımına kadar modern iş gücünü yönetmesine yardımcı olur. İnsan kaynakları bilgi sistemi (HRIS) olarak da adlandırılan İK Yönetim Sistemi sistemleri, bir şirketin en değerli varlıkları hakkındaki bilgileri, bu bilgilere ihtiyacı olan kişilerin önüne getirir.
                             </Header.Content>
                         </Grid.Column>
                     </Grid.Row>
@@ -22,7 +22,7 @@ export default function ServiceSection() {
                                         <Icon className="serviceGridIcon" circular color="blue" inverted name="street view" />
                                     </Grid.Column>
                                     <Grid.Column mobile="8" tablet="12" computer="14" largeScreen="13">
-                                        <Header.Content className='serviceSubContent'>You can advertise for your business. You set the criteria and you can hire people with the qualifications you are looking for. </Header.Content>
+                                        <Header.Content className='serviceSubContent'> Firman için iş ilanları verebilirsin. Kriterlerini belirle ve aradığın nitelikle insanları işe al. </Header.Content>
                                     </Grid.Column>
                                 </Grid.Row>
 
@@ -31,7 +31,7 @@ export default function ServiceSection() {
                                         <Icon className="serviceGridIcon" circular color="blue" inverted name="building outline" />
                                     </Grid.Column>
                                     <Grid.Column mobile="8" tablet="12" computer="14" largeScreen="13">
-                                        <Header.Content className='serviceSubContent'>You can view active job advertisements and details. You can create a CV and apply for the job you want. You can work in your dream job with pleasure. </Header.Content>
+                                        <Header.Content className='serviceSubContent'> İş ilanlarına ve detaylarına göz atabilirsin. Bir CV oluşturabilir ve istediğin işe başvurabilirsin. Hayalindeki işte mutlu ve huzurlu bir şekilde çalışabilirsin. </Header.Content>
                                     </Grid.Column>
                                 </Grid.Row>
 
@@ -40,7 +40,7 @@ export default function ServiceSection() {
                                         <Icon className="serviceGridIcon" circular color="blue" inverted name="code branch" />
                                     </Grid.Column>
                                     <Grid.Column mobile="8" tablet="12" computer="14" largeScreen="13">
-                                        <Header.Content className='serviceSubContent'>As a volunteer, you become an employee of our system. You can help us improve the project and reach more people. </Header.Content>
+                                        <Header.Content className='serviceSubContent'> Gönüllü olarak sistemimizin bir personeli olabilirsin. Projeyi geliştirmemizde bize yardım ederek daha fazla insana ulaşmamızı sağlayabilirsin. </Header.Content>
                                     </Grid.Column>
                                 </Grid.Row>
                             </Grid>

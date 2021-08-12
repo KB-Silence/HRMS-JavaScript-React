@@ -72,18 +72,18 @@ export default function AdvertisementFilterOption({ clickEvent }) {
                 <Label
                     className="filterLabel"
                     attached="top" circular size="large"
-                    content="Cities and Positions" />
+                    content="Şehir ve Pozisyon" />
                 <Dropdown
                     style={{ marginBottom: "5px" }}
                     fluid scrolling pointing
-                    placeholder="Choose city."
+                    placeholder="Şehir seç"
                     selection search item multiple clearable
                     value={cityIndex}
                     options={cityOptions}
                     onChange={handleChangeCity} />
                 <Dropdown
                     fluid scrolling pointing
-                    placeholder="Choose positions."
+                    placeholder="Pozisyon seç"
                     selection search item multiple clearable
                     value={positionIndex}
                     options={positionOptions}
@@ -94,7 +94,7 @@ export default function AdvertisementFilterOption({ clickEvent }) {
                 <Label
                     className="filterLabel"
                     attached="top" circular size="large"
-                    content="Employment Types and Times" />
+                    content="Çalışma Şekli ve Zamanı" />
                 <Container className="checkboxContainer">
                     {
                         employmentTypes.map(employmentType => (
@@ -123,7 +123,7 @@ export default function AdvertisementFilterOption({ clickEvent }) {
             </Segment>
             <Button
                 className="filterButton"
-                type="button" content="Filter"
+                type="button" content="Filtrele"
                 onClick={() => clickEvent({ cityId: cityIndex, positionId: positionIndex, typeId: typeIndex, timeId: timeIndex })} />
         </div>
     )

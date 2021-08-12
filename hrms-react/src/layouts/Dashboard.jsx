@@ -14,6 +14,7 @@ import JobAdvertisementDetail from '../pages/JobAdvertisements/JobAdvertisementD
 import JobAdvertisementFavorite from '../pages/JobAdvertisements/JobAdvertisementFavorite'
 import UnemployedProfile from '../pages/UnemployedProfile'
 import EmployerProfile from '../pages/EmployerProfile'
+import EmployeeProfile from '../pages/EmployeeProfile'
 
 
 export default function Dashboard() {
@@ -35,8 +36,9 @@ export default function Dashboard() {
             <Route exact path="/unemployedRegister" component={UnemployedRegister} />
             <Route exact path="/login" component={Login} />
 
-            <Route exact path="/unemployed/:unemployedId" component={UnemployedProfile} />
+            <Route exact path="/employee/:employeeId" component={EmployeeProfile} />
             <Route exact path="/employer/:employerId" component={EmployerProfile} />
+            <Route exact path="/unemployed/:unemployedId" component={UnemployedProfile} />
 
             <Route exact path="/addAdvertisement" component={AddAdvertisement} />
             <Route exact path="/allJobAdvertisements" component={JobAdvertisementList} />

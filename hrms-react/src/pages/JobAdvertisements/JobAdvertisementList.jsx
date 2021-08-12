@@ -76,11 +76,11 @@ export default function JobAdvertisementList() {
     }
 
     const paginationOptions = [
-        { key: 5, text: "5 Adverts", value: 5 },
-        { key: 10, text: "10 Adverts", value: 10 },
-        { key: 25, text: "25 Adverts", value: 25 },
-        { key: 50, text: "50 Adverts", value: 50 },
-        { key: 100, text: "100 Adverts", value: 100 },
+        { key: 5, text: "5 İlan", value: 5 },
+        { key: 10, text: "10 İlan", value: 10 },
+        { key: 25, text: "25 İlan", value: 25 },
+        { key: 50, text: "50 İlan", value: 50 },
+        { key: 100, text: "100 İlan", value: 100 },
     ]
 
     return (
@@ -96,21 +96,22 @@ export default function JobAdvertisementList() {
                             style={{
                                 margin: "7px",
                                 borderRadius: "20%",
-                                textAlign: "center"
+                                textAlign: "center",
+                                letterSpacing:"2px"
                             }}
-                            color="grey" dividing size="large" content="Job Advertisements" />
+                            color="grey" dividing size="large" content="İş İlanları" />
                     </td></tr>
                     <Table.Row>
-                        <Table.HeaderCell>Position</Table.HeaderCell>
-                        <Table.HeaderCell>Company</Table.HeaderCell>
-                        <Table.HeaderCell>Salary(TL)</Table.HeaderCell>
-                        <Table.HeaderCell>Quota</Table.HeaderCell>
-                        <Table.HeaderCell>Last Application</Table.HeaderCell>
-                        <Table.HeaderCell>City</Table.HeaderCell>
-                        <Table.HeaderCell>Details</Table.HeaderCell>
+                        <Table.HeaderCell>Şirket</Table.HeaderCell>
+                        <Table.HeaderCell>Pozisyon</Table.HeaderCell>
+                        <Table.HeaderCell>Maaş(TL)</Table.HeaderCell>
+                        <Table.HeaderCell>Kontenjan</Table.HeaderCell>
+                        <Table.HeaderCell>Son Kabul</Table.HeaderCell>
+                        <Table.HeaderCell>Şehir</Table.HeaderCell>
+                        <Table.HeaderCell>Detaylar</Table.HeaderCell>
 
                         {authInitial[0].login && authInitial[0].user.userType === 1 &&
-                            <Table.HeaderCell>Add to Favorites</Table.HeaderCell>}
+                            <Table.HeaderCell>Favorilere Ekle</Table.HeaderCell>}
                     </Table.Row>
                 </Table.Header>
                 <Table.Body>
@@ -118,29 +119,29 @@ export default function JobAdvertisementList() {
                     {
                         jobAdvertisements.map(jobAdvertisement => (
                             <Table.Row key={jobAdvertisement.advertId}>
+                                <Table.Cell width="5">{jobAdvertisement.employer.companyName}</Table.Cell>
                                 <Table.Cell>{jobAdvertisement.position.positionName}</Table.Cell>
-                                <Table.Cell>{jobAdvertisement.employer.companyName}</Table.Cell>
                                 <Table.Cell>{jobAdvertisement.minSalary} - {jobAdvertisement.maxSalary}</Table.Cell>
-                                <Table.Cell>{jobAdvertisement.quota}</Table.Cell>
+                                <Table.Cell textAlign="center" width="1">{jobAdvertisement.quota}</Table.Cell>
                                 <Table.Cell>
                                     {(
                                         (new Date(jobAdvertisement.lastApplication).getTime() - new Date(Date.now()).getTime()) / 86400000
                                     )
                                         .toString()
                                         .split(".", 1)}{" "}
-                                    day
+                                    gün
                                 </Table.Cell>
                                 <Table.Cell>{jobAdvertisement.city.cityName}</Table.Cell>
                                 <Table.Cell>
                                     <Button
                                         as={Link} to={`/jobAdvertisement/${jobAdvertisement.advertId}`}
-                                        circular content='Details' fluid negative size='small' />
+                                        circular content='Detaylar' fluid negative size='small' />
                                 </Table.Cell>
                                 {
                                     authInitial[0].login && authInitial[0].user.userType === 1 &&
                                     <Table.Cell>
                                         <Button
-                                            size="small" content="Add"
+                                            size="small" content="Ekle"
                                             circular fluid
                                             disabled={favorites.includes(jobAdvertisement.advertId) ? true : false}
                                             color={favorites.includes(jobAdvertisement.advertId) ? "grey" : "twitter"}
@@ -161,7 +162,7 @@ export default function JobAdvertisementList() {
                             totalPages={Math.ceil(totalPageSize / pageSize)} />
                         <Dropdown
                             selection
-                            text={"Pagination: " + pageSize}
+                            text={"Sayfalama: " + pageSize}
                             defaultValue={pageSize}
                             options={paginationOptions}
                             onChange={(e, data) => {

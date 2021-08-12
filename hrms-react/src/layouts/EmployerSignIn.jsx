@@ -15,17 +15,17 @@ export default function EmployerSignIn() {
         history.push("/")
         dispatch(setActive("home"))
     }
-    let message = `Welcome ${authInitial[0].user.name}`
+    let message = `Hoş geldin ${authInitial[0].user.name}`
     return (
         <Menu secondary stackable size="large" position='left'>
             <Menu.Item>
                 <Dropdown className="employerSignDropdown" pointing text={message} icon="hand point down" >
                     <Dropdown.Menu>
-                        <Dropdown.Item className="employerSignDropdownContent" content='Add Advert.'
+                        <Dropdown.Item className="employerSignDropdownContent" content='İlan Ekle'
                             as={Link} to="/addAdvertisement" />
-                        <Dropdown.Item className="employerSignDropdownContent" content='See All Adverts' as={Link} to="/allJobAdvertisements" />
-                        <Dropdown.Item className="employerSignDropdownContent" content='Profile' as={Link} to={`/employer/${authInitial[0].user.id}`} />
-                        <Dropdown.Item className="employerSignDropdownContent" content='Sign Out' onClick={() => handleLogout(authInitial[0].user)} />
+                        <Dropdown.Item className="employerSignDropdownContent" content='Bütün İlanları Gör' as={Link} to="/allJobAdvertisements" />
+                        <Dropdown.Item className="employerSignDropdownContent" content='Profil' as={Link} to={`/employer/${authInitial[0].user.id}`} />
+                        <Dropdown.Item className="employerSignDropdownContent" content='Çıkış Yap' onClick={() => handleLogout(authInitial[0].user)} />
                     </Dropdown.Menu>
                 </Dropdown>
             </Menu.Item>

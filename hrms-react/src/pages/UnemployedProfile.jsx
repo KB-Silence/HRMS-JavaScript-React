@@ -1,23 +1,23 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { Accordion, Button, Card, Grid, Image, Table, Container, Icon } from 'semantic-ui-react'
+import { Accordion, Button, Card, Grid, Image, Table, Container, Icon, Modal } from 'semantic-ui-react'
 import UnemployedService from '../services/UnemployedService'
-import EducationService from '../services/EducationService'
-import JobExperienceService from '../services/JobExperienceService'
-import TechnologyService from '../services/TechnologyService'
-import LanguageService from '../services/LanguageService'
-import CoverLetterService from '../services/CoverLetterService'
-import PhotoUploadService from '../services/PhotoUploadService'
-import LinkService from '../services/LinkService'
 import HandleActiveMenuItem from '../utils/HandleActiveMenuItem'
+import UpdateCoverLetter from '../layouts/ManageInformation/UpdateCoverLetter'
+import UpdateLanguage from '../layouts/ManageInformation/UpdateLanguage'
+import UpdateTechnology from '../layouts/ManageInformation/UpdateTechnology'
+import UpdateEducation from '../layouts/ManageInformation/UpdateEducation'
+import UpdateJobExperience from '../layouts/ManageInformation/UpdateJobExperience'
+import UpdatePhoto from '../layouts/ManageInformation/UpdatePhoto'
+import UpdateLink from '../layouts/ManageInformation/UpdateLink'
+import ViewCv from '../layouts/ManageInformation/ViewCv'
 
 export default function UnemployedProfile() {
 
+    let { unemployedId } = useParams()
+
     HandleActiveMenuItem()
-
-    const [activeItem, setActiveItem] = useState("educations")
-
     function handleItemClik(e, { name }) {
         if (activeItem === name) {
             setActiveItem("null")
@@ -25,39 +25,190 @@ export default function UnemployedProfile() {
             setActiveItem(name)
         }
     }
+    function handleModalClick(e, { name }) {
+        if (activeModalItem === name) {
+            setActiveModalItem("null")
+        } else {
+            setActiveModalItem(name)
+        }
+    }
+    function handleSubModalClick(e, { name }) {
+        if (activeSubModal === name) {
+            setActiveSubModal("null")
+        } else {
+            setActiveSubModal(name)
+        }
+    }
 
-    let { unemployedId } = useParams()
+    const [activeItem, setActiveItem] = useState("educations")
+    const [activeModalItem, setActiveModalItem] = useState("coverLetter")
+    const [activeSubModal, setActiveSubModal] = useState("addLanguage")
+    const [open, setOpen] = useState(false)
+    const [openInfo, setOpenInfo] = useState(false)
+
     const [unemployed, setUnemployed] = useState([])
-    const [educations, setEducations] = useState([])
-    const [languages, setLanguages] = useState([])
-    const [jobExperiences, setJobExperiences] = useState([])
-    const [technologies, setTechnologies] = useState([])
-    const [coverLetters, setCoverLetters] = useState([])
-    const [links, setLinks] = useState([])
-    const [photo, setPhoto] = useState([])
+    const [cv, setCv] = useState([])
 
     useEffect(() => {
         let unemployedService = new UnemployedService()
-        let educationService = new EducationService()
-        let languageService = new LanguageService()
-        let jobExperienceService = new JobExperienceService()
-        let technologyService = new TechnologyService()
-        let coverLetterService = new CoverLetterService()
-        let photoService = new PhotoUploadService()
-        let linkService = new LinkService()
-
         unemployedService.getByUserId(unemployedId).then((result) => setUnemployed(result.data.data))
-        educationService.getByUnemployedIdOrderByGraduatedDate(unemployedId).then((result) => setEducations(result.data.data))
-        languageService.getByUnemployedId(unemployedId).then((result) => setLanguages(result.data.data))
-        jobExperienceService.getByUnemployedIdOrderByLeaveDate(unemployedId).then((result) => setJobExperiences(result.data.data))
-        technologyService.getByUnemployedId(unemployedId).then((result) => setTechnologies(result.data.data))
-        coverLetterService.getByUnemployedId(unemployedId).then((result) => setCoverLetters(result.data.data))
-        photoService.getByUnemployedId(unemployedId).then((result) => setPhoto(result.data.data))
-        linkService.getByUnemployedId(unemployedId).then((result) => setLinks(result.data.data))
+        unemployedService.createCv(unemployedId).then((result) => setCv(result.data.data))
     }, [unemployedId])
+
+    function updateCv() {
+        let unemployedService = new UnemployedService()
+        unemployedService.createCv(unemployedId).then((result) => setCv(result.data.data))
+    }
 
     return (
         <div className="pages">
+            <Modal
+                style={{ fontFamily: "'Montserrat', sans-serif" }}
+                onClose={() => setOpen(false)}
+                onOpen={() => setOpen(true)}
+                open={open}>
+                <Modal.Header >
+                    {`${unemployed.firstName}'s CV`}
+                    <Button compact negative circular basic
+                        floated="right" icon="cancel"
+                        onClick={() => setOpen(false)} />
+                </Modal.Header>
+                <Modal.Content>
+                    <ViewCv unemployed={unemployed} cv={cv} />
+                </Modal.Content>
+            </Modal>
+
+            <Modal
+                size="large"
+                onClose={() => setOpenInfo(false)}
+                onOpen={() => setOpenInfo(true)}
+                open={openInfo} >
+                <Modal.Header className="manageInfoHeader" content="Bilgilerini Yönet" />
+                <Modal.Content className="manageInfoMainContent">
+                    <Modal.Description>
+                        <Accordion fluid styled style={{ textAlign: "center" }}>
+                            <Accordion.Title
+                                style={{ fontSize: "15px", letterSpacing: "2px" }}
+                                icon={false}
+                                content="Ön Yazı Bilgileri"
+                                name="coverLetter"
+                                active={activeModalItem === "coverLetter"}
+                                onClick={handleModalClick} />
+                            <Accordion.Content className="manageInformationSubContent"
+                                active={activeModalItem === "coverLetter"}>
+                                <UpdateCoverLetter unemployedId={unemployedId} updateCv={updateCv} />
+                            </Accordion.Content>
+                        </Accordion>
+
+                        <Accordion fluid styled style={{ textAlign: "center", marginTop: "20px" }}>
+                            <Accordion.Title
+                                style={{ fontSize: "15px", letterSpacing: "2px" }}
+                                icon={false}
+                                content="Dil Bilgileri"
+                                name="language"
+                                active={activeModalItem === "language"}
+                                onClick={handleModalClick} />
+                            <Accordion.Content className="manageInformationSubContent"
+                                active={activeModalItem === "language"}>
+                                <UpdateLanguage
+                                    updateCv={updateCv}
+                                    unemployedId={unemployedId}
+                                    activeSubModal={activeSubModal}
+                                    handleSubModalClick={handleSubModalClick} />
+                            </Accordion.Content>
+                        </Accordion >
+
+                        <Accordion fluid styled style={{ textAlign: "center", marginTop: "20px" }}>
+                            <Accordion.Title
+                                style={{ fontSize: "15px", letterSpacing: "2px" }}
+                                icon={false}
+                                content="Teknoloji Bilgileri"
+                                name="technology"
+                                active={activeModalItem === "technology"}
+                                onClick={handleModalClick} />
+                            <Accordion.Content className="manageInformationSubContent"
+                                active={activeModalItem === "technology"}>
+                                <UpdateTechnology
+                                    updateCv={updateCv}
+                                    unemployedId={unemployedId}
+                                    activeSubModal={activeSubModal}
+                                    handleSubModalClick={handleSubModalClick} />
+                            </Accordion.Content>
+                        </Accordion>
+
+                        <Accordion fluid styled style={{ textAlign: "center", marginTop: "20px" }}>
+                            <Accordion.Title
+                                style={{ fontSize: "15px", letterSpacing: "2px" }}
+                                icon={false}
+                                content="Eğitim Bilgileri"
+                                name="education"
+                                active={activeModalItem === "education"}
+                                onClick={handleModalClick} />
+                            <Accordion.Content className="manageInformationSubContent"
+                                active={activeModalItem === "education"}>
+                                <UpdateEducation
+                                    updateCv={updateCv}
+                                    unemployedId={unemployedId}
+                                    activeSubModal={activeSubModal}
+                                    handleSubModalClick={handleSubModalClick} />
+                            </Accordion.Content>
+                        </Accordion>
+
+                        <Accordion fluid styled style={{ textAlign: "center", marginTop: "20px" }}>
+                            <Accordion.Title
+                                style={{ fontSize: "15px", letterSpacing: "2px" }}
+                                icon={false}
+                                content="İş Tecrübesi Bilgileri"
+                                name="jobExperience"
+                                active={activeModalItem === "jobExperience"}
+                                onClick={handleModalClick} />
+                            <Accordion.Content className="manageInformationSubContent"
+                                active={activeModalItem === "jobExperience"}>
+                                <UpdateJobExperience
+                                    updateCv={updateCv}
+                                    unemployedId={unemployedId}
+                                    activeSubModal={activeSubModal}
+                                    handleSubModalClick={handleSubModalClick} />
+                            </Accordion.Content>
+                        </Accordion>
+
+                        <Accordion fluid styled style={{ textAlign: "center", marginTop: "20px" }}>
+                            <Accordion.Title
+                                style={{ fontSize: "15px", letterSpacing: "2px" }}
+                                icon={false}
+                                content="Profil Fotoğrafı"
+                                name="photo"
+                                active={activeModalItem === "photo"}
+                                onClick={handleModalClick} />
+                            <Accordion.Content className="manageInformationSubContent"
+                                active={activeModalItem === "photo"}>
+                                <UpdatePhoto
+                                    updateCv={updateCv}
+                                    unemployedId={unemployedId}
+                                    activeSubModal={activeSubModal}
+                                    handleSubModalClick={handleSubModalClick} />
+                            </Accordion.Content>
+                        </Accordion>
+
+                        <Accordion fluid styled style={{ textAlign: "center", marginTop: "20px" }}>
+                            <Accordion.Title
+                                style={{ fontSize: "15px", letterSpacing: "2px" }}
+                                icon={false}
+                                content="Bağlantılar"
+                                name="link"
+                                active={activeModalItem === "link"}
+                                onClick={handleModalClick} />
+                            <Accordion.Content className="manageInformationSubContent"
+                                active={activeModalItem === "link"}>
+                                <UpdateLink
+                                    updateCv={updateCv}
+                                    unemployedId={unemployedId} />
+                            </Accordion.Content>
+                        </Accordion>
+                    </Modal.Description>
+                </Modal.Content>
+            </Modal>
+
             <Grid
                 stackable
                 style={{ paddingLeft: "3em", paddingRight: "3em" }}>
@@ -67,7 +218,7 @@ export default function UnemployedProfile() {
                         <Card fluid>
                             <Image
                                 style={{ maxHeight: "500px" }}
-                                src={photo.photoUrl} />
+                                src={cv.photo?.photoUrl} />
                             <Card.Header
                                 content={`${unemployed.firstName} ${unemployed.lastName}`} />
                             <Card.Meta
@@ -76,18 +227,20 @@ export default function UnemployedProfile() {
                                 <Button
                                     style={{ marginBottom: "5px", letterSpacing: "1px" }}
                                     color="twitter"
-                                    content="View CV"
-                                    fluid compact circular />
+                                    content="CV'yi Gör"
+                                    fluid compact circular
+                                    onClick={() => setOpen(true)} />
                                 <Button
                                     style={{ letterSpacing: "1px" }}
                                     color="google plus"
-                                    content="Update Information"
+                                    content="Bilgilerini Güncelle"
+                                    onClick={() => setOpenInfo(true)}
                                     fluid compact circular />
                             </Card.Content>
                             <Card.Content>
                                 <Button
                                     target="_blank"
-                                    href={links.githubLink}
+                                    href={cv.link?.githubLink}
                                     style={{ marginRight: "5px" }}
                                     circular active
                                     color="black" >
@@ -96,7 +249,7 @@ export default function UnemployedProfile() {
                                 </Button>
                                 <Button
                                     target="_blank"
-                                    href={links.linkedinLink}
+                                    href={cv.link?.linkedinLink}
                                     style={{ marginLeft: "5px" }}
                                     circular active
                                     color="linkedin">
@@ -117,42 +270,30 @@ export default function UnemployedProfile() {
                         mobile="16" tablet="8" computer="12" >
                         <Accordion fluid styled style={{ marginBottom: "20px" }}>
                             <Accordion.Title
-                                style={{ fontSize: "20px" }}
+                                className="unemployedProfileTitle"
                                 name="educations"
                                 icon="book"
-                                content="Educations"
+                                content="Eğitim Bilgileri"
                                 active={activeItem === "educations"}
-                                onClick={handleItemClik}>
-                            </Accordion.Title>
+                                onClick={handleItemClik} />
                             <Accordion.Content
                                 active={activeItem === "educations"}>
                                 <Table textAlign="center">
                                     <Table.Row>
-                                        <Table.HeaderCell>
-                                            School Name
-                                        </Table.HeaderCell>
-                                        <Table.HeaderCell>
-                                            Department
-                                        </Table.HeaderCell>
-                                        <Table.HeaderCell>
-                                            Start Date
-                                        </Table.HeaderCell>
-                                        <Table.HeaderCell>
-                                            Graduated Date
-                                        </Table.HeaderCell>
+                                        <Table.HeaderCell content="Okul Adı" />
+                                        <Table.HeaderCell content="Bölüm Adı" />
+                                        <Table.HeaderCell content="Başlama Tarihi" />
+                                        <Table.HeaderCell content="Mezuniyet Tarihi" />
                                     </Table.Row>
                                     <Table.Body>
                                         {
-                                            educations.map(education => (
+                                            cv.educations?.map(education => (
                                                 <Table.Row key={education.educationId}>
-                                                    <Table.Cell>{education.schoolName}</Table.Cell>
-                                                    <Table.Cell>{education.department}</Table.Cell>
-                                                    <Table.Cell>{education.startDate}</Table.Cell>
-                                                    <Table.Cell>
-                                                        {
-                                                            education.graduatedDate == null ? "Continues" : education.graduatedDate
-                                                        }
-                                                    </Table.Cell>
+                                                    <Table.Cell content={education.schoolName} />
+                                                    <Table.Cell content={education.department} />
+                                                    <Table.Cell content={education.startDate} />
+                                                    <Table.Cell
+                                                        content={education.graduatedDate == null ? "Devam Ediyor" : education.graduatedDate} />
                                                 </Table.Row>
                                             ))
                                         }
@@ -162,29 +303,25 @@ export default function UnemployedProfile() {
                         </Accordion>
                         <Accordion fluid styled style={{ marginBottom: "20px" }}>
                             <Accordion.Title
-                                style={{ fontSize: "20px" }}
+                                className="unemployedProfileTitle"
                                 name="languages"
                                 icon="language"
-                                content="Languages"
+                                content="Dil Bilgileri"
                                 active={activeItem === "languages"}
                                 onClick={handleItemClik} />
                             <Accordion.Content
                                 active={activeItem === "languages"}>
                                 <Table textAlign="center">
                                     <Table.Row>
-                                        <Table.HeaderCell>
-                                            Language
-                                        </Table.HeaderCell>
-                                        <Table.HeaderCell>
-                                            Language Level(1 - 5)
-                                        </Table.HeaderCell>
+                                        <Table.HeaderCell content="Dil Adı" />
+                                        <Table.HeaderCell content="Dil Seviyesi(1 - 5)" />
                                     </Table.Row>
                                     <Table.Body>
                                         {
-                                            languages.map(language => (
+                                            cv.languages?.map(language => (
                                                 <Table.Row key={language.languageId}>
-                                                    <Table.Cell>{language.languageName}</Table.Cell>
-                                                    <Table.Cell>{language.languageLevel}</Table.Cell>
+                                                    <Table.Cell content={language.languageName} />
+                                                    <Table.Cell content={language.languageLevel} />
                                                 </Table.Row>
                                             ))
                                         }
@@ -194,29 +331,25 @@ export default function UnemployedProfile() {
                         </Accordion>
                         <Accordion fluid styled style={{ marginBottom: "20px" }}>
                             <Accordion.Title
-                                style={{ fontSize: "20px" }}
+                                className="unemployedProfileTitle"
                                 name="technologies"
                                 icon="js"
-                                content="Technologies"
+                                content="Teknoloji Bilgileri"
                                 active={activeItem === "technologies"}
                                 onClick={handleItemClik} />
                             <Accordion.Content
                                 active={activeItem === "technologies"}>
                                 <Table textAlign="center">
                                     <Table.Row>
-                                        <Table.HeaderCell>
-                                            Technology
-                                        </Table.HeaderCell>
-                                        <Table.HeaderCell>
-                                            Technology Level(1 - 5)
-                                        </Table.HeaderCell>
+                                        <Table.HeaderCell content="Teknoloji Adı" />
+                                        <Table.HeaderCell content="Teknoloji Seviyesi(1 - 5)" />
                                     </Table.Row>
                                     <Table.Body>
                                         {
-                                            technologies.map(technology => (
+                                            cv.technologies?.map(technology => (
                                                 <Table.Row key={technology.technologyId}>
-                                                    <Table.Cell>{technology.technologyName}</Table.Cell>
-                                                    <Table.Cell>{technology.technologyLevel}</Table.Cell>
+                                                    <Table.Cell content={technology.technologyName} />
+                                                    <Table.Cell content={technology.technologyLevel} />
                                                 </Table.Row>
                                             ))
                                         }
@@ -226,41 +359,30 @@ export default function UnemployedProfile() {
                         </Accordion>
                         <Accordion fluid styled style={{ marginBottom: "20px" }}>
                             <Accordion.Title
-                                style={{ fontSize: "20px" }}
+                                className="unemployedProfileTitle"
                                 name="jobExperiences"
                                 icon="linkedin alternate"
-                                content="Job Experiences"
+                                content="İş Tecrübeleri"
                                 active={activeItem === "jobExperiences"}
                                 onClick={handleItemClik} />
                             <Accordion.Content
                                 active={activeItem === "jobExperiences"}>
                                 <Table textAlign="center">
                                     <Table.Row>
-                                        <Table.HeaderCell>
-                                            Workplace Name
-                                        </Table.HeaderCell>
-                                        <Table.HeaderCell>
-                                            Position
-                                        </Table.HeaderCell>
-                                        <Table.HeaderCell>
-                                            Start Date
-                                        </Table.HeaderCell>
-                                        <Table.HeaderCell>
-                                            Leave Date
-                                        </Table.HeaderCell>
+                                        <Table.HeaderCell content="İşyeri Adı" />
+                                        <Table.HeaderCell content="Pozisoyn Adı" />
+                                        <Table.HeaderCell content="Başlama Tarihi" />
+                                        <Table.HeaderCell content="Ayrılma Tarihi" />
                                     </Table.Row>
                                     <Table.Body>
                                         {
-                                            jobExperiences.map(jobExperience => (
+                                            cv.jobExperiences?.map(jobExperience => (
                                                 <Table.Row key={jobExperience.experienceId}>
-                                                    <Table.Cell>{jobExperience.workplaceName}</Table.Cell>
-                                                    <Table.Cell>{jobExperience.positionName}</Table.Cell>
-                                                    <Table.Cell>{jobExperience.startDate}</Table.Cell>
-                                                    <Table.Cell>
-                                                        {
-                                                            jobExperience.leaveDate == null ? "Continues" : jobExperience.leaveDate
-                                                        }
-                                                    </Table.Cell>
+                                                    <Table.Cell content={jobExperience.workplaceName} />
+                                                    <Table.Cell content={jobExperience.positionName} />
+                                                    <Table.Cell content={jobExperience.startDate} />
+                                                    <Table.Cell
+                                                        content={jobExperience.leaveDate == null ? "Devam Ediyor" : jobExperience.leaveDate} />
                                                 </Table.Row>
                                             ))
                                         }
@@ -270,26 +392,22 @@ export default function UnemployedProfile() {
                         </Accordion>
                         <Accordion fluid styled style={{ marginBottom: "20px" }}>
                             <Accordion.Title
-                                style={{ fontSize: "20px" }}
+                                className="unemployedProfileTitle"
                                 name="coverLetters"
                                 icon="file alternate"
-                                content="Cover Letter"
+                                content="Ön Yazı"
                                 active={activeItem === "coverLetters"}
                                 onClick={handleItemClik} />
                             <Accordion.Content
                                 active={activeItem === "coverLetters"}>
-                                {
-                                    coverLetters.map(coverLetter => (
-                                        <Container key={coverLetter.letterId}>
-                                            {coverLetter.letterContent}
-                                        </Container>
-                                    ))
-                                }
+                                <Container>
+                                    {cv.coverLetter?.letterContent}
+                                </Container>
                             </Accordion.Content>
                         </Accordion>
                     </Grid.Column>
                 </Grid.Row>
             </Grid>
-        </div>
+        </div >
     )
 }

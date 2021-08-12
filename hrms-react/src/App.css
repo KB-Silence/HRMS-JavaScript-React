@@ -1,6 +1,7 @@
 /* FONTS */
 @import url(https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Stint+Ultra+Condensed&display=swap);
 @import url(https://fonts.googleapis.com/css2?family=Acme&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Montserrat&display=swap);
 
 .mainSectionHeader,
 .serviceHeader,
@@ -16,10 +17,26 @@
   font-family: 'Acme', sans-serif !important;
 }
 
+.unemployedProfileTitle,
+.employerListTitle,
+.employeeAccordTitle {
+  font-size: 20px !important;
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+.loginHeader,
+.employerModalHeader,
+.employeeCardHeader,
+.unemployedTable,
+.title {
+  font-family: 'Montserrat', sans-serif !important;
+}
+
 /* MAIN */
 .App {
   text-align: center;
   background: linear-gradient(to left, #1d2b64, #f8cdda);
+  font-family: 'Montserrat', sans-serif !important;
 }
 
 /*##############################################################################################*/
@@ -44,28 +61,19 @@
 .pages {
   padding-top: 100px !important;
   padding-bottom: 100px !important;
-  height: 100vh !important;
+  min-height: 100vh !important;
+  height: auto !important;
+}
+
+.loginPage {
+  top: 17em !important;
+  position: relative !important;
 }
 
 @media only screen and (max-width: 995px) {
-  .pages {
-    height: auto !important;
-  }
   .footer {
     border-radius: 10px/10px !important;
     margin-top: 1em !important;
-  }
-
-  .loginPage,
-  .employerRegister,
-  .advertDetail {
-    height: auto !important;
-  }
-}
-
-@media only screen and (max-width:1226px) {
-  .advertList {
-    height: auto !important;
   }
 }
 
@@ -305,10 +313,10 @@
   font-size: 15px !important;
   letter-spacing: 1px;
   font-weight: lighter !important;
-  padding: 8px 30px 8px 30px !important;
+  padding: 8px 40px 8px 40px !important;
   border-radius: 15px/15px !important;
-  color: #491919 !important;
-  background: rgba(118, 214, 94, 0.6) !important;
+  color: #ffffff !important;
+  background: linear-gradient(to right, #0f0c29, #302b63, #24243e) !important;
 }
 
 .registerHeader, .loginHeader {
@@ -437,4 +445,50 @@
 
 .unemployedMenu {
   padding: 6px 0px 0px 5px !important;
+}
+
+.addSchoolLabel {
+  letter-spacing: 2px !important;
+  color: #000000 !important;
+  background: rgba(0, 255, 128, 0.181) !important;
+}
+
+.photoButton {
+  padding-left: 3em !important;
+  padding-right: 3em !important;
+  margin-right: 20px !important;
+  font-size: 14px !important;
+  letter-spacing: 2px !important;
+  border-radius: 20px/20px !important;
+  background-color: #8bf50a !important;
+}
+
+.photoDeleteButton {
+  margin: 5px !important;
+  letter-spacing: 2px;
+}
+
+.manageInfoHeader {
+  color: white !important;
+  text-align: center;
+  letter-spacing: 4px ;
+  font-family: 'Montserrat', sans-serif !important;
+  background: linear-gradient(to left, #8360c3, #08281e) !important;
+}
+
+.manageInfoMainContent {
+  background: linear-gradient(to left, #8360c3, #08281e) !important;
+}
+
+.manageInformationSubContent {
+  background-color: #d3d3d379 !important;
+}
+
+.employeeCardMeta {
+  letter-spacing: 1px;
+  font-weight: bold !important;
+}
+
+.employeeCard {
+  background: linear-gradient(to right, #1bfd76, #96e4c0) !important;
 }

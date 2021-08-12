@@ -85,7 +85,7 @@ export default function AddAdvertisement() {
         })
         setTimeout(() => {
             resetForm();
-        }, 20000000)
+        }, 3000)
     }
 
     return (

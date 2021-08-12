@@ -43,9 +43,9 @@ export default function JobAdvertisementFavorite() {
                                 {
                                     borderRadius: "15px",
                                     background: "linear-gradient(to left, #c9d6ff, #e2e2e2)",
-                                    letterSpacing: "4px"
+                                    letterSpacing: "4px",
                                 }} >
-                            <Header color="black" content="Your favorites" dividing />
+                            <Header style={{ fontFamily: "'Montserrat', sans-serif" }} color="black" content="Favori İlanların" dividing />
                         </Segment>
                     </Grid.Column>
                 </Grid.Row>
@@ -55,10 +55,10 @@ export default function JobAdvertisementFavorite() {
                 <Grid stackable textAlign="center" columns="4" container style={{ marginTop: "1em" }}>
                     <Grid.Row stretched divided>
                         {favoriteAdverts?.map((favoriteAdvert) => (
-                            <Grid.Column key={favoriteAdvert.favoriteId} style={{ marginTop: "1em" }} mobile="16" tablet="6" computer="4" largeScreen="4">
+                            <Grid.Column key={favoriteAdvert.favoriteId} style={{ marginTop: "1em" }} mobile="16" tablet="6" computer="5" largeScreen="4">
                                 <Card>
                                     <Card.Content>
-                                        <Card.Header className="favoriteHeader" style={{marginBottom:"5px"}}>
+                                        <Card.Header className="favoriteHeader" style={{ marginBottom: "5px" }}>
                                             {favoriteAdvert.jobAdvertisement.employer.companyName}
                                         </Card.Header>
                                         <Card.Meta>
@@ -66,7 +66,7 @@ export default function JobAdvertisementFavorite() {
                                         </Card.Meta>
                                         <Card.Content>
                                             <Card.Meta>
-                                                Last Application:
+                                                Son Kabul :
                                                 {(
                                                     (new Date(favoriteAdvert.jobAdvertisement.lastApplication).getTime() -
                                                         new Date(Date.now()).getTime()) /
@@ -74,7 +74,7 @@ export default function JobAdvertisementFavorite() {
                                                 )
                                                     .toString()
                                                     .split(".", 1)}{" "}
-                                                day
+                                                gün
                                             </Card.Meta>
                                         </Card.Content>
                                         <Divider hidden />
@@ -86,10 +86,10 @@ export default function JobAdvertisementFavorite() {
                                         <Button
                                             circular basic
                                             as={Link} to={`/jobAdvertisement/${favoriteAdvert.jobAdvertisement.advertId}`}
-                                            color="green" content="Detail" />
+                                            color="green" content="Detaylar" />
                                         <Button
                                             circular basic
-                                            color="red" content="Remove"
+                                            color="red" content="Kaldır"
                                             onClick={() => handleRemoveFavorite(favoriteAdvert.favoriteId)} />
                                     </Card.Content>
                                 </Card>

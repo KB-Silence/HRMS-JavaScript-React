@@ -12,11 +12,11 @@ export default function TeamSection() {
                 <Grid stackable textAlign="center" columns='3' container>
                     <Grid.Row>
                         <Grid.Column largeScreen="16" mobile='16' tablet='12' computer='10' >
-                            <Header className='teamHeader' as='h2'>Who Are We?</Header>
+                            <Header className='teamHeader' as='h2'>Biz Kimiz?</Header>
                             <Header.Content className='teamMainContent'>
-                                <span className="teamMainPersonName">Engin Demiroğ;</span> Owner of Microsoft Certified Trainer (MCT), PMP and ITIL certificates.</Header.Content>
+                                <span className="teamMainPersonName">Engin Demiroğ;</span> Microsoft Certified Trainer (MCT), PMP and ITIL sertifikaları sahibi.</Header.Content>
                             <Header.Content className='teamMainContent'>
-                                <span className="teamMainPersonName">Berkcan Serbest;</span> You are an IProductDal. </Header.Content>
+                                <span className="teamMainPersonName">Berkcan Serbest;</span> Sen bir IProductDal'sın. </Header.Content>
                         </Grid.Column>
                     </Grid.Row>
 

@@ -3,10 +3,14 @@ import { Header, Form, Segment, Button, Checkbox, Message } from 'semantic-ui-re
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import HandleActiveMenuItem from '../../utils/HandleActiveMenuItem'
+import AuthService from '../../services/AuthService'
+import { toast } from 'react-toastify';
+import { useHistory } from 'react-router-dom';
 
 export default function EmployerRegister() {
 
     HandleActiveMenuItem()
+    const history = useHistory()
 
     const initialValues = {
         companyName: "",
@@ -32,18 +36,24 @@ export default function EmployerRegister() {
         }).required("Confirm password field cannot be empty."),
         agree: yup.bool().oneOf([true], "You must accept the terms of use.")
     })
-    
+
+    let authService = new AuthService()
+
+    const onSubmit = (values) => {
+        authService.registerEmployer(values.confirmPassword, values).then((result) => {
+            toast.success(result.data.message)
+            history.push("/")
+        }).catch((result) => {
+            toast(result.response.data.message)
+        })
+    }
+
     return (
-        <div className="pages employerRegister" 
-        style={{paddingLeft:"1em",paddingRight:"1em"}}>
+        <div className="pages employerRegister"
+            style={{ paddingLeft: "1em", paddingRight: "1em" }}>
             <Formik initialValues={initialValues}
                 validationSchema={schema}
-                onSubmit={(values, { resetForm }) => {
-                    console.log(values);
-                    setTimeout(() => {
-                        resetForm();
-                    }, 2000)
-                }}
+                onSubmit={onSubmit}
             >
                 {({ values, errors, handleChange, handleSubmit, touched }) => (
                     <React.Fragment>
