@@ -1,18 +1,11 @@
-## Home Page  
-![Screenshot_5](https://user-images.githubusercontent.com/74976052/122796598-3e458380-d2c7-11eb-8eac-664a5d7347e5.png)  
+## Anasayfa  
+![anasayfa](https://user-images.githubusercontent.com/74976052/129270088-bd58b75b-2e32-42e3-ba0d-e7d6e9396660.png)
 
-## Home Page (After User Login)  
-![Screenshot_8](https://user-images.githubusercontent.com/74976052/122796585-3be32980-d2c7-11eb-8f2c-97fdb5e87b19.png) 
+## Servisler  
+![servisler](https://user-images.githubusercontent.com/74976052/129270173-64ed308d-09b0-4d4a-aea7-d8bb79ebf85b.png)
 
-## Services Section  
-![Screenshot_9](https://user-images.githubusercontent.com/74976052/122796679-56b59e00-d2c7-11eb-93f7-06a44036408a.png)  
+## Takım  
+![takım](https://user-images.githubusercontent.com/74976052/129270182-d197c5ff-c410-486a-bd01-f84f923b24d5.png)  
 
-## Team Section  
-![Screenshot_10](https://user-images.githubusercontent.com/74976052/122796962-a09e8400-d2c7-11eb-803d-8087ec22e971.png)  
-
-## Contact Section  
-![Screenshot_11](https://user-images.githubusercontent.com/74976052/122796676-55847100-d2c7-11eb-8e54-0157dfd0e2b5.png)  
-
-## Register And Login Buttons
-![Screenshot_6](https://user-images.githubusercontent.com/74976052/122796594-3e458380-d2c7-11eb-8796-5317413a6e00.png)
-![Screenshot_7](https://user-images.githubusercontent.com/74976052/122796591-3daced00-d2c7-11eb-933c-ee0015b1877c.png)
+## İletişim  
+![iletişim](https://user-images.githubusercontent.com/74976052/129270155-e2cca328-6dbc-421c-9b05-34ee942108ec.png)  
