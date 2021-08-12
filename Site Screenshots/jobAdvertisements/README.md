@@ -1,8 +1,11 @@
-## Add new Job Advertisement
-![Screenshot_4](https://user-images.githubusercontent.com/74976052/122796602-3f76b080-d2c7-11eb-9a00-478a3fa2eadc.png)  
+## Yeni İş İlanı Ekle
+![ilanekle](https://user-images.githubusercontent.com/74976052/129270151-bc8f1b41-430e-4368-b817-e240dbb2ba40.png)    
 
-## Success Message
-![Screenshot_2](https://user-images.githubusercontent.com/74976052/122796608-40a7dd80-d2c7-11eb-8535-dc4a76fed5ec.png)  
+## Bütün İş İlanları
+![bütünilanlar](https://user-images.githubusercontent.com/74976052/129270107-d52ac62b-a426-4ae0-8568-e7c87915a718.png)  
 
-## All Job Advertisements
-![Screenshot_3](https://user-images.githubusercontent.com/74976052/122796603-400f4700-d2c7-11eb-84e0-e70988bc7270.png)  
+## İlan Detay Sayfası  
+![ilandetay](https://user-images.githubusercontent.com/74976052/129271134-e695bb75-f80b-4740-b59d-35e1570312b3.png)
+
+## Favori İş İlanları  
+![favoriilanlar](https://user-images.githubusercontent.com/74976052/129270145-b4be53b5-ef33-42d4-9ba6-e66468ed4d72.png)  
